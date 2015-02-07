@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 14, 2014, 4:10:09 PM
+    Author     : poegel
+*/
+
+#submenu-top-pocket{
+  background-color: #e4e4e4;
+  padding-top: 20%;
+  padding-bottom: 2%;
+  width: 100%;
+}
+
+#submenu-top-pocket > #input-pocket-search{
+  background-image: url("../img/pocket/search.png");
+  background-position: 6px 50%;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  border: 0 none;
+  margin: 0 2%;
+  padding-left: 8%;
+  width: 88%;
+}
+
+.pocket{
+  border-bottom: 1px solid #CCCCCC;
+  float: left;
+  width: 100%;
+}
+
+.pocket > img{
+  float: right;
+  width: 25%;
+}
+
+.pocket > div{
+  color: #303030;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 300%;
+  padding-left: 5%;
+  padding-top: 5%;
+}
+
+.pocket .pocket-text{
+  color: #464646;
+  font-size: 85%;
+  padding-top: 2%;
+}
+
+

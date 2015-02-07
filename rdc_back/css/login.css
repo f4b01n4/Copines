@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 10, 2014, 10:59:25 AM
+    Author     : poegel
+*/
+
+.background-landing-login{
+  width: 100%;
+  height: auto;
+}
+
+.title-landing-login{
+  width: 70%;
+  top: 70px;
+  position: absolute;
+  left: 15%;
+}
+
+.button-landing-login{
+  background-image: url("../img/login/landing/button.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: #FFFFFF;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 15px;
+  height: auto;
+  line-height: 52px;
+  margin-bottom: 4%;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button-landing-login-fb{
+  background-image: url("../img/login/login/facebook.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: #FFFFFF;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 15px;
+  height: auto;
+  line-height: 52px;
+  margin-bottom: 4%;
+  text-align: center;
+  width: 80%;
+  margin-left: 10%;
+  cursor: pointer;
+}
+
+#landing-login-content{
+  left: 12%;
+  position: absolute;
+  top: 330px;
+  width: 76%;
+}
+
+#loginTitle{
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+#loginTitle > img{
+  float: right;
+  width: 20px;
+}
+
+#loginTitle > p{
+  float: left;
+  font-size: 16px;
+  color: #1f1f1f;
+}
+
+#loginDiv{
+  display: none;
+  padding: 5%;
+}
+
+#landingLoginDiv input[type=email], #landingLoginDiv input[type=password]{
+ background-color: #F0F0F0;
+  border: 0 none;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 13px;
+  height: 40px;
+  text-indent: 5px;
+  width: 98%;
+}
+
+input[type=email].emailSaved{
+  background-color: #FFF;
+  color: #848484;
+}
+
+.form-login{
+  margin-bottom: 7px;
+}
+
+.p-ou{
+  color: #7D7D7D;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 15px;
+  margin: 3% 0;
+  text-align: center;
+}
+
+#login-buttons-div{
+  padding: 5% 10% 0;
+}
+
+.login-footer{
+  color: #7D7D7D;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  text-align: center;
+}

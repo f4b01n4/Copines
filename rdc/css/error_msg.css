@@ -1,0 +1,122 @@
+/**
+ * Title: Error Messages CSS
+ * User: Fábio Violante
+ * Date: 16/08/2013
+ * 
+ * LastUpdate: 10/02/2014
+ */
+
+.errorWindow {
+  bottom: 100%;
+  display: none;
+  position: absolute;
+  z-index: 1000;
+}
+
+#repWrapper .errorWindow,
+.optin .errorWindow {
+	bottom: 5px;
+}
+
+.greenWindow {
+	bottom: 150px;
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.errorWindow.left,
+.greenWindow.left {
+  left: 0px;
+}
+
+.errorWindow.right,
+.greenWindow.right {
+  right: 10px;
+}
+
+.errorWindow.viral {
+	bottom: 150px;
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+.errorWindow .box {
+  background-color: #FEF1EC;
+  border: 1px solid #FF0000;
+  border-radius: 3px 3px 3px 3px;
+  color: #FF0000;
+  font-family: tahoma,verdana,"sans-serif";
+  font-size: 12px;
+  line-height: 1;
+  opacity: 1;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.greenWindow .box {
+  background-color: #F0FEEC;
+  border: 1px solid #68B046;
+  color: #68B046;
+  border-radius: 3px 3px 3px 3px;
+  font-family: tahoma,verdana,"sans-serif";
+  font-size: 12px;
+  line-height: 13px;
+  opacity: 1;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.errorWindow .arrowDown {
+  height: 10px;
+  width: 14px;
+  margin-top: -1px;
+  background: url('../img/fleche.png');
+  clear: both;
+}
+
+.greenWindow .arrowDown {
+  height: 10px;
+  width: 14px;
+  margin-top: -1px;
+  /*background: url('../images/fleche-viral.png');*/
+  clear: both;
+}
+
+.errorWindow.left .arrowDown,
+.greenWindow.left .arrowDown {
+  float: left;
+  margin-left: 20px;
+}
+
+.errorWindow.right .arrowDown,
+.greenWindow.right .arrowDown {
+  float: right;
+  margin-right: 20px;
+}
+
+.errorWindow.viral .arrowDown,
+.greenWindow .arrowDown {
+	margin-left: 15px;
+}
+
+.form-group.radio-inputs .errorWindow .box,
+.form-group.birthdate .errorWindow .box {
+	float: left;
+}
+
+.invalid {
+  border-color: rgba(234, 82, 82, 0.5) !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(234, 82, 82, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(234, 82, 82, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(234, 82, 82, 0.6);
+  
+  outline: 0;
+  outline: thin dotted \9;
+}

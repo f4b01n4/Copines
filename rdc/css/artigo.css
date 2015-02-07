@@ -1,0 +1,202 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 10, 2014, 4:05:27 PM
+    Author     : poegel
+*/
+
+#menu-bar-top-artigo{
+  background-image: url("../img/menu/menu/top.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#menu-bar-top-artigo > img{
+  cursor: pointer;
+  float: left;
+  padding: 8% 6% 3%;
+  width: 4%;
+}
+
+#menu-bar-top-artigo > img.artigo-share, #menu-bar-top-artigo > img.artigo-comment, #menu-bar-top-artigo > img.artigo-like{
+  float: right;
+  padding: 7% 3% 0;
+  width: 9%;
+}
+
+#menu-bar-top-artigo > p{
+  color: #FFFFFF;
+  float: left;
+  font-size: 400%;
+  line-height: 2;
+  overflow: hidden;
+  padding-top: 5%;
+  text-align: center;
+  width: 67%;
+}
+
+/* START GALLERY STUFF*/
+
+#galleryDiv > img, .artigo-img, .next-article-feed > div > img{
+  width: 100%;
+}
+/* END GALLERY*/
+
+#artigo-content-div{
+  text-align: center;
+  margin-top: -13%;
+}
+
+#artigo-content-div #artigo-blogger-photo{
+  width: 23%;
+}
+
+#artigo-content-div > #artigo-date{
+  font-family: Times New Roman,Arial,Helvetica,sans-serif;
+  font-size: 190%;
+  margin: 2% 0;
+  text-align: center;
+}
+
+#artigo-content-div > #artigo-title{
+  color: #373737;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 500%;
+  text-align: center;
+}
+
+#artigo-content-div > #artigo-revue-text{
+  color: #8A8A8A;
+  font-family: Times New Roman,Arial,Helvetica,sans-serif;
+  font-size: 190%;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+#artigo-content-div > #artigo-revue-text > span{
+  font-weight: normal;
+}
+
+#artigo-text{
+  font-family: Times New Roman,Arial,Helvetica,sans-serif;
+  font-size: 290%;
+  padding: 5%;
+}
+
+#artigo-status-div{
+  padding: 5%;
+}
+
+#btn-original-site{
+  border: 1px solid #EF3245;
+  color: #EF3245;
+  font-size: 300%;
+  line-height: 200%;
+  text-align: center;
+  width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actions-div{
+  margin-top: 5%;
+  overflow: hidden;
+  color: #373737;
+}
+
+.actions-div > p{
+  float: left;
+  font-size: 230%;
+  padding-top: 2%;
+}
+
+.actions-div > p.description{
+  color: #888888;
+  padding: 0;
+  width: 80%;
+}
+
+.actions-div > img{
+  float: left;
+  margin-right: 7%;
+  width: 12%;
+}
+
+.red{
+  color: #EF3245;
+  font-weight: bold;
+}
+
+#next-articles{
+  padding: 5%;
+}
+
+#next-articles > p{
+  border-bottom: 1px solid #888888;
+  font-size: 280%;
+  font-weight: bold;
+}
+
+.next-article-feed{
+  padding: 2% 0;
+  float: left;
+  width: 100%;
+}
+
+.next-article-feed > img{
+  float: left;
+  margin-right: 5%;
+  width: 40%;
+}
+
+.next-article-feed > p {
+  float: left;
+  font-family: Times New Roman,Arial,Helvetica,sans-serif;
+  font-size: 300%;
+  width: 47%;
+}
+
+.next-article-feed > p.next-article-title {
+    width: 47%;
+    color: #EF3245;
+    font-weight: bold;
+    padding-bottom: 2%;
+}
+
+.next-article-feed-arrow-div{
+  float: right;
+  width: 7%;
+}
+
+#artigoDiv #article-btn-original{
+  width: 90%;
+  margin: 5%;
+  cursor: pointer;
+}
+
+#artigoDiv #article-data-div{
+  font-family: Times New Roman, Arial, Helvetica, sans-serif;
+  font-size: 340%;
+  text-align: left;
+}
+
+#artigoDiv #article-data-div p{
+  padding: 2% 5%;
+}
+
+#artigoDiv #article-data-div img{
+  width: 100%;
+  height: auto;
+}
+

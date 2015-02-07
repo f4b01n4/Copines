@@ -1,0 +1,92 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 5, 2014, 11:49:44 AM
+    Author     : poegel
+*/
+
+#loginsliderDiv{
+  background-image: url("../img/login_slider/background.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+#loginsliderDiv .etape-1{
+  color: #FFFFFF;
+  display: block;
+  font-family: "Apercu-Bold",Arial,Helvetica,sans-serif;
+  font-size: 730%;
+  line-height: 150%;
+  padding-left: 10%;
+  padding-top: 20%;
+  text-align: left;
+}
+
+#loginsliderDiv .pointsDiv{
+  float: right;
+  padding-right: 3%;
+  padding-top: 7%;
+}
+
+#loginsliderDiv .pointsDiv > div > img{
+  margin-bottom: 10%;
+  width: 70%;
+}
+
+#loginsliderDiv .etape-2{
+  display: none;
+  color: #FFFFFF;
+  font-size: 490%;
+  padding-top: 20%;
+  text-align: center;
+  font-family: "Apercu-Medium", Arial, Helvetica, sans-serif;
+}
+
+#loginsliderDiv .etape-2 .small{
+  font-family: "Apercu",Arial,Helvetica,sans-serif;
+  font-size: 64%;
+  padding-bottom: 10%;
+  padding-top: 5%;
+}
+
+#loginsliderDiv .etape-2 img{
+  width: 16%;
+}
+
+#loginsliderDiv .etape-3{
+  display: none;
+  color: #FFFFFF;
+  font-size: 490%;
+  padding-top: 20%;
+  text-align: center;
+  font-family: "Apercu-Medium", Arial, Helvetica, sans-serif;
+}
+
+#loginsliderDiv .etape-3 .small{
+  font-family: "Apercu",Arial,Helvetica,sans-serif;
+  font-size: 64%;
+  padding-bottom: 10%;
+  padding-top: 5%;
+}
+
+#loginsliderDiv .etape-3 img{
+  width: 35%;
+}
+
+#loginsliderDiv .nextsliderDiv{
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  font-size: 250%;
+  color: #FFF;
+  font-family: "Apercu-Light",Arial,Helvetica,sans-serif;
+}
+
+#loginsliderDiv .nextsliderDiv > img{
+  padding: 2% 0;
+  width: 10%;
+}

@@ -1,0 +1,88 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 14, 2014, 4:46:46 PM
+    Author     : poegel
+*/
+
+#bloggerProfileDiv{
+  color: #FFF;
+}
+
+#blogger-profile-cover{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#blogger-profile-contentDiv{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#blogger-profile-controlDiv{
+  padding: 8% 5% 0;
+  position: relative;
+  width: 90%;
+  z-index: 100;
+}
+
+#blogger-profile-controlDiv > img{
+  width: 10%;
+}
+
+#blogger-profile-controlDiv > img.close{
+  float: left;
+}
+
+#blogger-profile-controlDiv > img.follow{
+  float: right;
+}
+
+#blogger-profile{
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+#blogger-profile > img{
+  width: 35%;
+}
+
+#blogger-profile > p{
+  font-size: 300%;
+}
+
+#blogger-profile .blog-name{
+  font-weight: bold;
+  font-size: 430%;
+  padding: 4% 0;
+}
+
+#blogger-profile .user-description{
+  padding: 5% 10%;
+  width: 80%;
+}
+
+#blogger-profile-stats{
+  float: left;
+  font-size: 300%;
+  padding: 5% 10%;
+  width: 80%;
+}
+
+#blogger-profile-stats > div{
+  float: left;
+  width: 33%;
+}
+
+#blogger-profile #blogger-profile-btn-articles{
+  width: 47%;
+}
+

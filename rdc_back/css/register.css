@@ -1,0 +1,346 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 5, 2014, 2:31:03 PM
+    Author     : poegel
+*/
+
+#registerDiv > div{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  overflow: scroll;
+}
+
+#registerDiv > #register-etape0{
+  display: block;
+}
+
+#register-facebook-img, #register-twitter-img{
+  width: 80%;
+  margin-bottom: 2%;
+}
+
+.subscription-blogformulaire-div{
+  float: left;
+  width: 100%;
+}
+
+#subscription-formulaire-div > div{
+  position: relative;
+  width: 90%;
+  padding: 0 5%;
+}
+
+#registerDiv > #register-etape3b > div{
+  position: relative;
+}
+
+#register-themes-content{
+  font-size: 350%;
+  border-bottom: 1px solid #CCCCCC;
+  float: left;
+  position: relative;
+}
+
+.selected{
+  background-color: #EF3246;
+  color: #FFF;
+}
+
+#register-etape4b > div, #register-etape5b > div, #register-etape6b > div{
+  position: relative;
+}
+
+#subscription-title{
+  float: left;
+  font-size: 330%;
+  line-height: 130%;
+  padding: 7% 0;
+  width: 100%;
+}
+
+.subscription-mail-text{
+  color: #999999;
+  font-size: 300%;
+  margin: 3% 0;
+}
+
+#register-etape2 input {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: -moz-use-text-color -moz-use-text-color #AAAAAA;
+  border-image: none;
+  border-style: none none solid;
+  border-width: medium medium 1px;
+  color: #555555;
+  font-size: 330%;
+  margin-bottom: 3%;
+  width: 90%;
+
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+
+}
+
+#subscription-blogger-button{
+  width: 80%;
+}
+
+#register-themes-content img {
+  height: 20px;
+  margin: 1%;
+}
+
+#register-etape3b label{
+  font-size: 270%;
+  color: #000;
+}
+
+#register-top-red-div{
+  float: left;
+  width: 100%;
+  height: 20px;
+  background-color: #ef3245;
+}
+
+#register-etape1-title{
+  color: #000000;
+  float: left;
+  font-size: 300%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-top: 5%;
+  text-align: left;
+  width: 95%;
+}
+
+#user-themes-div > div[theme=mode]{
+  background-image: url("../img/register/topic-icons/Mode.png");
+}
+#user-themes-div > div[theme=beaute]{
+  background-image: url("../img/register/topic-icons/Beauté.png");
+}
+#user-themes-div > div[theme=DIY]{
+  background-image: url("../img/register/topic-icons/DIY.png");
+}
+
+#user-themes-div > div[theme=voyages]{
+  background-image: url("../img/register/topic-icons/Voyages.png");
+}
+#user-themes-div > div[theme=decoration]{
+  background-image: url("../img/register/topic-icons/Décoration.png");
+}
+#user-themes-div > div[theme=fitness]{
+  background-image: url("../img/register/topic-icons/Fitness.png");
+}
+
+#user-themes-div > div[theme=food]{
+  background-image: url("../img/register/topic-icons/Food.png");
+}
+#user-themes-div > div[theme=mariage]{
+  background-image: url("../img/register/topic-icons/Mariage.png");
+}
+#user-themes-div > div[theme=famille]{
+  background-image: url("../img/register/topic-icons/Famille.png");
+}
+
+
+
+
+#user-themes-div{
+  float: left;
+  width: 100%;
+  height: 66%;
+  position: relative;
+}
+
+#user-themes-div > div{
+  width: 31%;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 1%;
+  height: 30%;
+}
+
+#user-themes-div > div.errorWindow{
+  height: auto;
+  width: auto;
+}
+
+#user-themes-div > div > img{
+  display: none;
+  padding: 36% 35%;
+  width: 30%;
+}
+
+#register-etape1 #subscription-suivant-btn{
+  width: 30%;
+}
+
+#register-etape1 #subscription-conditions{
+  color: #888888;
+  font-size: 270%;
+  padding-top: 4%;
+}
+
+#register-etape3 .subscription-form-field{
+  margin-bottom: 2%;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #CCC;
+  position: relative;
+}
+
+#register-etape3 .subscription-form-field label{
+  float: left;
+  font-size: 250%;
+  font-weight: bold;
+  line-height: 2;
+  margin-left: 5%;
+}
+
+#register-etape3 .subscription-form-field input{
+  float: right;
+  width: 60%;
+  color: #EF3245;
+  border: none;
+  margin-right: 5%;
+}
+
+#register-etape3 #subscription-cat-text{
+  float: left;
+  font-size: 250%;
+  font-weight: bold;
+  padding: 3% 5%;
+  text-align: left;
+  width: 90%;
+}
+
+#register-etape3 .grey_italic{
+  color: #888888;
+  float: left;
+  font-size: 260%;
+  font-style: italic;
+  padding: 3% 5%;
+  text-align: left;
+  width: 90%;
+}
+
+#register-etape3 #register-biographie-div textarea{
+  border: 1px solid #CCCCCC;
+  color: #EF3245;
+  height: 149px;
+  resize: none;
+  width: 90%;
+}
+
+#register-etape3 #register-social-div {
+  overflow: hidden;
+  padding-bottom: 6%;
+  float: left;
+}
+
+#register-etape3 #register-social-div > img{
+  float: left;
+  margin-left: 8%;
+  width: 11%;
+}
+
+#register-biographie-div{
+  float: left;
+  position: relative;
+}
+
+#register-etape3 .subscription-blogformulaire-photo-div, #register-etape3 .subscription-blogformulaire-photocover-div{
+  float: left;
+  width: 100%;
+}
+
+#register-etape3 .subscription-blogformulaire-photo-div img{
+  float: left;
+  width: 20%;
+  padding: 5%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#register-etape3 .subscription-blogformulaire-photocover-div img{
+  float: left;
+  width: 20%;
+  padding: 5%;
+  -webkit-border-radius: 25%;
+  -moz-border-radius: 25%;
+  border-radius: 25%;
+}
+
+#register-etape3 .subscription-blogformulaire-photo-div label, #register-etape3 .subscription-blogformulaire-photocover-div label{
+  float: left;
+  font-size: 270%;
+  font-weight: bold;
+  line-height: 7;
+  text-align: left;
+}
+
+#register-etape0 #subscription-step0-background-img{
+  width: 100%;
+  height: 100%;
+}
+
+#register-etape0 #subscription-step0-background-img-light{
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  opacity: 0.25;
+  filter:alpha(opacity=25);
+}
+
+#register-etape0 #subscription-step0-content{
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#register-etape0 #subscription-step0-content > img{
+  padding-top: 22%;
+  width: 53%;
+}
+
+#register-etape0 #subscription-step0-content > p{
+  color: #FFFFFF;
+  font-size: 440%;
+  line-height: 139%;
+  padding-top: 2%;
+}
+
+#register-etape0 #subscription-step0-bottom-div {
+  bottom: 2%;
+  color: #FFFFFF;
+  font-size: 360%;
+  position: absolute;
+  width: 100%;
+}
+
+#register-etape0 #subscription-step0-bottom-div > img{
+  padding-top: 3%;
+  width: 10%;
+}
+
+

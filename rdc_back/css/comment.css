@@ -1,0 +1,122 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 3, 2014, 11:00:26 AM
+    Author     : poegel
+*/
+
+#menu-bar-top-comment{
+  background-image: url("../img/menu/menu/top.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+#comment-menu-bar-title{
+  color: #FFFFFF;
+  font-size: 400%;
+  font-weight: bold;
+  padding: 7% 0 2%;
+  text-align: center;
+  width: 100%;
+}
+
+#comment-menu-bar-termine{
+  color: #FFFFFF;
+  font-size: 350%;
+  position: absolute;
+  right: 3%;
+  top: 47%;
+  cursor: pointer;
+}
+
+.comment{
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #CCC;
+}
+
+.comment > img {
+  float: left;
+  padding: 5%;
+  width: 15%;
+}
+
+.comment-container{
+  float: left;
+  width: 75%;
+  padding: 5% 0 5% 0;
+  font-size: 250%;
+  color: #8B8B8B;
+  line-height: 120%;
+}
+
+.comment-container > div{
+  width: 95%;
+  float: left;
+  padding-right: 5%;
+}
+
+.comment-container > div > p{
+  float: left;
+  color: #696969;
+  font-weight: bold;
+} 
+
+.comment-container > div > p.timepast{
+  float: right;
+  color: #8B8B8B;
+  font-weight: normal;
+}
+
+.comment-container > p{
+  float: left;
+  width: 95%;
+}
+
+#comment-input-div{
+  background-color: #EAEAEA;
+  bottom: 0;
+  height: 8%;
+  position: fixed;
+  width: 100%;
+}
+
+#comment-input-div > img{
+  width: 27%;
+  float: right;
+  margin-right: 5%;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+#comment-input-div > input{
+  border: none;
+  height: 60%;
+  margin: 2% 0 0 5%;
+  text-indent: 3%;
+  width: 60%;
+
+  
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#comment-input-div > input::-webkit-input-placeholder{
+  color:#EAEAEA;
+}
+
+#commentDiv .menu-bar-bottom-spacer {
+  float: left;
+  height: 60px;
+  width: 100%;
+}

@@ -1,0 +1,32 @@
+<div id="landingLoginDiv">
+  <img class="background-landing-login" src="img/login/landing/background.png" />
+  <img class="title-landing-login" src="img/login/landing/logo.png" />
+  <div id="landing-login-content">
+    <div class="button-landing-login" onclick="project.changePage('registerDiv')"><p>S'inscrire</p></div>
+    <div class="button-landing-login" onclick="login.displayLoginDiv('show')"><p>Se connecter</p></div>
+  </div>
+
+  <div id="loginDiv">
+    <div id="loginTitle"><p>Se connecter</p><img onclick="login.displayLoginDiv('hide')" src="img/login/login/cross.png" /></div>
+    <div class="form-login">
+      <input type="email" value="testing505@pears.fr" placeholder="Mail*" id="input-login-email" />
+      <!--<input type="email" value="" placeholder="Mail*" id="input-login-email" />-->
+    </div>
+    <div class="form-login">
+      <input type="password" value="123456789" placeholder="Mot de passe*" id="input-login-password" />
+      <!--<input type="password" value="" placeholder="Mot de passe*" id="input-login-password" />-->
+    </div>
+    <div id="login-buttons-div">
+      <div class="button-landing-login" onclick="login.loginClick()"><p>se connecter</p></div>
+      <p class="p-ou">ou</p>
+      <div class="button-landing-login-fb" onclick=""><p>&nbsp;</p></div>
+    </div>
+    <div>
+      <p class="login-footer">
+        Mot de passe oublié?<br/>
+        Créer un compte
+      </p>
+    </div>
+  </div>
+
+</div>

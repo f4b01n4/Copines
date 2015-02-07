@@ -1,0 +1,30 @@
+<div id="landingLoginDiv">
+  <img class="background-landing-login" src="img/login/landing/background.png" />
+  <img class="title-landing-login" src="img/login/landing/logo.png" />
+  <div id="landing-login-content">
+    <div class="button-landing-login" onclick="project.changePage('registerDiv')"><p>S'inscrire</p></div>
+    <div class="button-landing-login" onclick="login.displayLoginDiv('show')"><p>Se connecter</p></div>
+  </div>
+
+  <div id="loginDiv">
+    <div id="loginTitle"><p>Se connecter</p><img onclick="login.displayLoginDiv('hide')" src="img/login/login/cross.png" /></div>
+    <div class="form-login">
+      <input type="email" value="" placeholder="Email*" id="input-login-email" />
+    </div>
+    <div class="form-login">
+      <input type="password" value="" placeholder="Password*" id="input-login-password" />
+    </div>
+    <div id="login-buttons-div">
+      <div class="button-landing-login" onclick="login.loginClick($('#input-login-email').val(), $('#input-login-password').val())"><p>se connecter</p></div>
+      <p class="p-ou">ou</p>
+      <div class="button-landing-login-fb" onclick="facebookConnect()"><p>&nbsp;</p></div>
+    </div>
+    <div>
+      <p class="login-footer">
+        Mot de passe oublié?<br/>
+        Créer un compte
+      </p>
+    </div>
+  </div>
+
+</div>

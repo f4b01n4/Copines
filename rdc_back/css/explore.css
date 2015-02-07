@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 14, 2014, 12:37:49 PM
+    Author     : poegel
+*/
+
+#explore-premiumPlace{
+  background-image: url("../img/explore/image_2.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  float: left;
+}
+
+#explore-premiumPlace > .explore-text-div > p{
+  color: #FFFFFF;
+  font-size: 300%;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  width: 70%;
+}
+
+.blogid{
+  display: none;
+}
+
+.explore-text-div > p{
+  color: #1F1F1F;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 300%;
+}
+
+#explore-premiumPlace > .explore-text-div > img, .explore-text-div > img{
+  float: right;
+  margin-right: 3%;
+  position: absolute;
+  right: 0;
+  width: 10%;
+  cursor: pointer;
+}
+
+#explore-premiumPlace .explore-sets{
+  float: left;
+  width: 70%;
+  color: #FFF;
+  font-size: 230%;
+}
+
+.explore-sets{
+  float: left;
+  width: 70%;
+  color: #424242;
+  font-size: 230%;
+}
+
+.explore-sets > p{
+  float: left;
+}
+
+#explore-premiumPlace .explore-sets > img{
+  float: left;
+  width: 10%;
+  margin-right: 3%;
+}
+
+.explore-sets > img{
+  float: left;
+  width: 8%;
+  margin-right: 3%;
+}
+
+.explore-sets > .explore-img-bag{
+  margin-left: 10%;
+}
+
+#explore-copinesDiv > div{
+  width: 100%;
+  float: left;
+}
+
+#explore-premiumPlace > img, #explore-copinesDiv > div > img{
+  float: left;
+  margin: 8% 0 5% 5%;
+  width: 24%;
+}
+
+.explore-text-div{
+  float: right;
+  padding-top: 14%;
+  width: 65%;
+}
+
+.menu-bar-bottom-spacer{
+  width: 100%;
+  height: 30px;
+  background-color: #FFF;
+  float: left;
+}
+
+
+

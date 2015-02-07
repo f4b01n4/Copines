@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 11, 2014, 2:50:29 PM
+    Author     : poegel
+*/
+
+#categoryDiv{
+  background-color: #EF3245;
+  color: #FFF;
+}
+
+#categoryDiv #cat-control-div{
+  font-size: 360%;
+  font-weight: bold;
+  padding: 6% 5%;
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+}
+
+#categoryDiv #cat-control-div > p{
+  float: left;
+}
+
+#categoryDiv #cat-control-div > .termine{
+  font-weight: normal;
+  float: right;
+}
+
+#categoryDiv #category-slider-div{
+  width: 2640px;
+  height: 75%;
+  overflow: hidden;
+  text-align: center;
+  margin-left: -200px;
+}
+
+#categoryDiv #category-slider-div > div{
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0px 40px;
+  float: left;
+  height: 100%;
+  margin: 0 10px;
+  width: 220px;
+  position: relative;
+}
+
+#categoryDiv #category-slider-div > div[category="beaute"]{ background-image: url("../img/category/slider/beaute.png"); }
+#categoryDiv #category-slider-div > div[category="decoration"]{ background-image: url("../img/category/slider/decoration.png"); }
+#categoryDiv #category-slider-div > div[category="DIY"]{ background-image: url("../img/category/slider/diy.png"); }
+#categoryDiv #category-slider-div > div[category="famille"]{ background-image: url("../img/category/slider/famille.png"); }
+#categoryDiv #category-slider-div > div[category="fitness"]{ background-image: url("../img/category/slider/fitness.png"); }
+#categoryDiv #category-slider-div > div[category="food"]{ background-image: url("../img/category/slider/food.png"); }
+#categoryDiv #category-slider-div > div[category="mariage"]{ background-image: url("../img/category/slider/mariage.png"); }
+#categoryDiv #category-slider-div > div[category="mode"]{ background-image: url("../img/category/slider/mode.png"); }
+#categoryDiv #category-slider-div > div[category="voyages"]{ background-image: url("../img/category/slider/voyages.png"); }
+
+#categoryDiv #category-slider-div > div > p{
+  font-size: 380%;
+  font-weight: bold;
+  line-height: 2;
+}
+
+#categoryDiv #category-slider-div > div > img{
+  left: 37.5%;
+  position: absolute;
+  top: 50%;
+  width: 25%;
+}
+
+#categoryDiv #category-message{
+  position: relative;
+  width: 100%;
+  line-height: 2;
+  font-size: 300%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#categoryDiv #category-message > p{
+  display: none;
+}

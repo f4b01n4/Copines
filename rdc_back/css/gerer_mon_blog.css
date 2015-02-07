@@ -1,0 +1,163 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 4, 2014, 6:54:54 PM
+    Author     : poegel
+*/
+
+#gererMonBlogDiv .subscription-form-field{
+  margin-bottom: 2%;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #CCC;
+  position: relative;
+}
+
+#gererMonBlogDiv .subscription-form-field label{
+  float: left;
+  font-size: 250%;
+  font-weight: bold;
+  line-height: 2;
+  margin-left: 5%;
+}
+
+#gererMonBlogDiv .subscription-form-field input{
+  float: right;
+  width: 60%;
+  color: #EF3245;
+  border: none;
+  margin-right: 5%;
+}
+
+#gererMonBlogDiv #subscription-cat-text{
+  float: left;
+  font-size: 250%;
+  font-weight: bold;
+  padding: 3% 5%;
+  text-align: left;
+  width: 90%;
+}
+
+#gererMonBlogDiv .grey_italic{
+  color: #888888;
+  float: left;
+  font-size: 260%;
+  font-style: italic;
+  padding: 3% 5%;
+  text-align: left;
+  width: 90%;
+}
+
+#gererMonBlogDiv #register-biographie-div textarea{
+  border: 1px solid #CCCCCC;
+  color: #EF3245;
+  height: 149px;
+  resize: none;
+  width: 90%;
+}
+
+#gererMonBlogDiv #register-social-div {
+  overflow: hidden;
+  padding-bottom: 6%;
+  float: left;
+}
+
+#gererMonBlogDiv #register-social-div > img{
+  float: left;
+  margin-left: 8%;
+  width: 11%;
+}
+
+#register-biographie-div{
+  float: left;
+  position: relative;
+  text-align: center;
+}
+
+#gererMonBlogDiv .subscription-blogformulaire-photo-div, #gererMonBlogDiv .subscription-blogformulaire-photocover-div{
+  float: left;
+  width: 100%;
+}
+
+#gererMonBlogDiv .subscription-blogformulaire-photo-div img{
+  float: left;
+  width: 20%;
+  padding: 5%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#gererMonBlogDiv .subscription-blogformulaire-photocover-div img{
+  float: left;
+  width: 20%;
+  padding: 5%;
+  -webkit-border-radius: 25%;
+  -moz-border-radius: 25%;
+  border-radius: 25%;
+}
+
+#gererMonBlogDiv .subscription-blogformulaire-photo-div label, #gererMonBlogDiv .subscription-blogformulaire-photocover-div label{
+  float: left;
+  font-size: 270%;
+  font-weight: bold;
+  line-height: 7;
+  text-align: left;
+}
+
+#gererMonBlogDiv #gererMonBlog-topdiv{
+  background-color: #EF3245;
+  color: #FFFFFF;
+  font-size: 370%;
+  font-weight: bold;
+  height: auto;
+  line-height: 2;
+  overflow: hidden;
+  padding: 5% 5% 0;
+  text-align: left;
+  width: 90%;
+}
+
+#gererMonBlogDiv #gererMonBlog-topdiv > p{
+  float: left;
+}
+
+#gererMonBlogDiv #gererMonBlog-topdiv > p.termine{
+  font-weight: normal;
+  float: right;
+}
+
+#gererMonBlogDiv #gererMonBlog-buttons{
+  background-color: #D72739;
+  color: #FFFFFF;
+  font-size: 350%;
+  height: auto;
+  line-height: 2;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  border-top: 1px solid #D72739;
+}
+
+#gererMonBlogDiv #gererMonBlog-buttons > p{
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+#gererMonBlogDiv #gererMonBlog-buttons > p.selected{
+  background-color: #EF3245;
+}
+
+
+#gererMonBlogDiv #register-themes-content {
+    border-bottom: 1px solid #CCCCCC;
+    float: left;
+    font-size: 350%;
+    position: relative;
+    text-align: center;
+}
+

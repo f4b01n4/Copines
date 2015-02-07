@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 12, 2014, 10:33:29 AM
+    Author     : poegel
+*/
+
+#mainDiv #discoverDiv{
+  overflow-y: scroll;
+  font-family: 'Apercu', Arial, Helvetica, sans-serif;
+}
+
+#discoverDiv #discover-top-red{
+  background-color: #EF3245;
+  color: #FFFFFF;
+  font-size: 400%;
+  font-weight: bold;
+  height: 6%;
+  overflow: hidden;
+  padding-top: 7%;
+  position: relative;
+  text-align: center;
+}
+
+#discoverDiv #discover-top-red > img{
+  position: absolute;
+  width: 8%;
+  left: 3%;
+}
+
+#discoverDiv #discover-top-red > p.termine{
+  font-size: 80%;
+  font-weight: normal;
+  position: absolute;
+  right: 3%;
+  top: 50%;
+}
+
+#discoverDiv #discover-categories-div{
+  overflow: hidden;
+  position: relative;
+  width: 94%;
+  padding: 3%;
+}
+
+#discoverDiv #discover-categories-div > img{
+  width: 31%;
+  float: left;
+  margin: 1%;
+  opacity: 0.5;
+}
+
+#discoverDiv #discover-content #discover-blog-title{
+  padding: 3%;
+  font-size: 350%;
+  border-bottom: 1px solid #888;
+}
+
+#discoverDiv .discover-blog{
+  width: 100%;
+  font-size: 350%;
+  border-bottom: 1px solid #888;
+  overflow: hidden;
+}
+
+#discoverDiv .discover-blog > img.discover-blogphoto{
+  float: left;
+  padding: 3%;
+  width: 20%;
+}
+
+#discoverDiv .discover-blog > div{
+  color: #000000;
+  float: left;
+  font-size: 80%;
+  font-weight: bold;
+  padding: 7% 0 0;
+}
+
+#discoverDiv .discover-blog .discover-blogcategory{
+  color: #6C6C6C;
+  font-weight: normal;
+  font-size: 95%;
+}
+
+#discoverDiv .discover-blog > img.discover-blogfollow{
+  float: right;
+  padding: 7% 5% 0 0;
+  width: 10%;
+}
+

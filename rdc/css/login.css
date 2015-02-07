@@ -1,0 +1,93 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 10, 2014, 10:59:25 AM
+    Author     : poegel
+*/
+
+#loginDiv{
+  text-align: center;
+  overflow-y: scroll;
+}
+
+#loginDiv #login-top-red{
+  background-color: #EF3245;
+  font-size: 300%;
+  color: #FFF;
+  font-family: 'Apercu', Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 7%;
+  overflow: hidden;
+  padding-bottom: 3%;
+  height: 5%;
+}
+
+#loginDiv #login-top-red .annuler{
+  position: absolute;
+  left: 3%;
+  line-height: 180%;
+  z-index: 2;
+}
+
+#loginDiv #login-top-red .connecter{
+  position: absolute;
+  right: 3%;
+  line-height: 180%;
+  z-index: 2;
+}
+
+#loginDiv #login-top-red .copines{
+  position: absolute;
+  width: 100%;
+  font-weight: bold;
+  font-size: 130%;
+  z-index: 0;
+}
+
+#loginDiv #login-socials{
+  padding: 6% 10% 0%;
+  width: 80%;
+}
+
+#loginDiv #login-socials > img{
+  width: 100%;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+
+#loginDiv .login-display-text{
+  color: #999999;
+  font-size: 300%;
+  text-align: center;
+  font-family: 'Apercu', Arial, Helvetica, sans-serif;
+}
+
+#loginDiv .form-login{
+  padding: 3% 5%;
+  width: 90%;
+  position: relative;
+}
+
+#loginDiv .form-login > input{
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 2% 0;
+  font-size: 300%;
+  
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  
+  font-family: 'Apercu', Arial, Helvetica, sans-serif;
+  
+}
+
+#loginDiv #login-btn-login{
+  margin: 5% 0;
+  width: 80%;
+  cursor: pointer;
+}

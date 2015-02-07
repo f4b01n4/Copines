@@ -1,0 +1,89 @@
+<div id="gererMonBlogDiv">
+  <div>
+
+    <div id="gererMonBlog-topdiv">
+      <p>Gérer mon blog</p>
+      <p class="termine">Terminé</p>
+    </div>
+    <div id="gererMonBlog-buttons">
+      <p class="selected" tab="profil" onclick="gerermonblog.tabClick($(this))">Profil</p>
+      <p tab="statistiques" onclick="gerermonblog.tabClick($(this))">Statistiques</p>
+    </div>
+
+    <div id="gererProfilDiv">
+
+      <div class="subscription-blogformulaire-photo-div">
+        <img src="img/register/hardcoded/image1.png" />
+        <label>Photo</label>
+      </div>
+
+      <div class="subscription-blogformulaire-photocover-div">
+        <img src="img/register/hardcoded/image2.png" />
+        <label>Photo de couverture</label>
+      </div>
+
+      <div class="subscription-blogformulaire-div">
+        <div class="subscription-form-field">
+          <label>Nom</label>
+          <input type="text" id="register-input-blogname" />
+        </div>
+        <div class="subscription-form-field">
+          <label>Localisation</label>
+          <input type="text" value="" placeholder="" id="register-input-localization-gerer" class="input-gpoint" latitude="" longitude="" reference="" />
+        </div>
+        <div class="subscription-form-field">
+          <label>Blog</label>
+          <input type="url" id="register-input-blogurl" />
+        </div>
+      </div>
+
+      <p id="subscription-cat-text">Catégorie (3 max)</p>
+
+      <div id="register-themes-content">
+        <div>
+          <img onclick="register.blogThemesClick($(this))" theme="mode" src="img/register/categories/Off_mode.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="beaute" src="img/register/categories/Off_beauté.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="DIY" src="img/register/categories/Off_DIY.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="food" src="img/register/categories/Off_food.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="voyages" src="img/register/categories/Off_voyages.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="fitness" src="img/register/categories/Off_fitness.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="decoration" src="img/register/categories/Off_décoration.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="famille" src="img/register/categories/Off_famille.png" />
+          <img onclick="register.blogThemesClick($(this))" theme="mariage" src="img/register/categories/Off_mariage.png" />
+        </div>
+      </div>
+
+      <div class="subscription-blogformulaire-div">
+        <div class="subscription-form-field">
+          <label>&nbsp;</label>
+          <!--input type="password" readonly value="******" id="register-input-blogpassword"-->
+        </div>
+      </div>
+
+      <div id="register-biographie-div">
+        <label class="grey_italic">À propos (480 caractères max)</label>
+        <textarea rows="7" maxlength="480"></textarea>
+      </div>
+
+      <div id="register-social-div">
+        <label class="grey_italic">Mes réseaux sociaux</label>
+        <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_facebook.png" />
+        <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_twitter.png" />
+        <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_instagram.png" />
+        <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_pinterest.png" />
+        <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_google.png" />
+      </div>
+
+    </div>
+
+    <div id="gererStatistiquesDiv">
+
+
+
+    </div>
+
+
+
+
+  </div>
+</div>

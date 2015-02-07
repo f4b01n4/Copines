@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:gap="http://phonegap.com/ns/1.0"
+        id="com.revue.copines"
+        version="0.2">
+    
+    <name>Revue de Copines</name>
+    
+    <description>
+        Revue de Copines Blog App.
+    </description>
+    
+    <author email="fabio@pears.fr" href="http://cordova.io">
+        Pears and Bragston
+    </author>
+    
+    <content src="index.html" />
+    
+    <preference name="orientation" value="portrait" />
+    <preference name="prerendered-icon" value="true" />
+    
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    
+    <icon src="icon.png" />
+    
+    <gap:splash src="splash.png" />
+    <gap:splash src="splash.png" gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="splash.png" gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="splash.png" gap:platform="ios"     width="640" height="1136" />
+    <gap:splash src="splash.png" gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="splash.png" gap:platform="ios"     width="1024" height="768" />
+    
+    <access origin="*" />
+</widget>

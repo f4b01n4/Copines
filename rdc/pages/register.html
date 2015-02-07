@@ -1,0 +1,154 @@
+<div id="registerDiv">
+  
+  <div id="register-etape0">
+    
+    <img id="subscription-step0-background-img" src="img/global/background-landing1.png" />
+    <div id="subscription-step0-background-img-light"></div>
+    
+    <div id="subscription-step0-content">
+      
+      <img src="img/register/copines.png" />
+      <p>Lisez et découvrez de<br/>nouveaux blogs sur mobile.</p>
+      
+      <div id="subscription-step0-bottom-div">
+        <div id="btn-tologinpage-div" onclick="project.changePage('loginDiv')">
+          <p>Compte existant ?</p>
+        </div>
+        <p>Bienvenue sur Copines<br/><span>Faites glisser pour continuer...</span></p>
+        <img onclick="register.changeStep(1)" src="img/register/arrow.png" />
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <!-- ********** STEP 1 ************-->
+
+  <div id="register-etape1">
+    
+    <div id="register-top-red-div"></div>
+
+    <p id="register-etape1-title">Choisis des thèmes pour commencer</p>
+    
+    <div id="user-themes-div">
+      <div onclick="register.userThemeClick($(this))" theme="mode"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="beaute"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="DIY"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="voyages"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="decoration"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="fitness"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="food"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="mariage"><img src="img/register/buttons/check-categories.png" /></div>
+      <div onclick="register.userThemeClick($(this))" theme="famille"><img src="img/register/buttons/check-categories.png" /></div>
+    </div>
+    <img onclick="register.stepOne()" id="subscription-suivant-btn" src="img/register/suivant.png" />
+    <p id="subscription-conditions">En continuant, tu acceptes les <a href="#">conditions d'utilisation</a> et la <a href="#">Confidentialité.</a></p>
+    
+  </div>
+
+  <!-- ********** STEP 2 ************-->
+
+  <div id="register-etape2">
+    <div id="menu-bar-top-comment">
+      <p id="comment-menu-bar-title">S'incrire</p>
+      <p id="comment-menu-bar-termine" onclick="register.stepTwo($(this))">Enregister</p>
+    </div>
+    <div class="menu-bar-bottom-spacer"></div>
+    <div class="menu-bar-bottom-spacer"></div>
+
+    <p id="subscription-title">
+      Tu y es presque !<br/>
+      Crée ton compte Revue de Copines
+    </p>
+
+    <img id="register-facebook-img" src="img/register/facebook.png" onclick="alert('facebook connect');" />
+    <img id="register-twitter-img" src="img/register/twitter.png" onclick="alert('twitter connect');" />
+
+    <p class="subscription-mail-text">Par mail</p>
+    <div id="subscription-formulaire-div">
+      <div><input id="register-input-name" type="text" value="" placeholder="Nom complet" /></div>
+      <div><input id="register-input-email" type="email" value="" placeholder="Adresse mail" /></div>
+      <div><input id="register-input-password" type="password" value="" placeholder="Mot de passe" /></div>
+    </div>
+
+    <p class="subscription-mail-text">Si vous êtes une blogueuse, c'est par ici</p>
+
+    <img id="subscription-blogger-button" onclick="register.stepTwo($(this))" src="img/register/creercompteblogueuse.png" />
+
+  </div>
+
+  <!-- ********** STEP 3B ************-->
+
+  <div id="register-etape3">
+
+    <div id="menu-bar-top-comment">
+      <p id="comment-menu-bar-title">S'incrire</p>
+      <p id="comment-menu-bar-termine" onclick="register.stepThreeBlogger($(this))">Enregister</p>
+    </div>
+    <div class="menu-bar-bottom-spacer"></div>
+    
+    <div class="subscription-blogformulaire-photo-div">
+      <img src="img/register/hardcoded/image1.png" />
+      <label>Photo</label>
+    </div>
+    
+    <div class="subscription-blogformulaire-photocover-div">
+      <img src="img/register/hardcoded/image2.png" />
+      <label>Photo de couverture</label>
+    </div>
+
+    <div class="subscription-blogformulaire-div">
+      <div class="subscription-form-field">
+        <label>Nom</label>
+        <input type="text" id="register-input-blogname" />
+      </div>
+      <div class="subscription-form-field">
+        <label>Localisation</label>
+        <input type="text" value="" placeholder="" id="register-input-localization" class="input-gpoint" latitude="" longitude="" reference="" />
+      </div>
+      <div class="subscription-form-field">
+        <label>Blog</label>
+        <input type="url" id="register-input-blogurl" />
+      </div>
+    </div>
+
+    <p id="subscription-cat-text">Catégorie (3 max)</p>
+
+    <div id="register-themes-content">
+      <div>
+        <img onclick="register.blogThemesClick($(this))" theme="mode" src="img/register/categories/Off_mode.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="beaute" src="img/register/categories/Off_beauté.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="DIY" src="img/register/categories/Off_DIY.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="food" src="img/register/categories/Off_food.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="voyages" src="img/register/categories/Off_voyages.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="fitness" src="img/register/categories/Off_fitness.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="decoration" src="img/register/categories/Off_décoration.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="famille" src="img/register/categories/Off_famille.png" />
+        <img onclick="register.blogThemesClick($(this))" theme="mariage" src="img/register/categories/Off_mariage.png" />
+      </div>
+    </div>
+
+    <div class="subscription-blogformulaire-div">
+      <div class="subscription-form-field">
+        <label>&nbsp;</label>
+        <!--input type="password" readonly value="******" id="register-input-blogpassword"-->
+      </div>
+    </div>
+    
+    <div id="register-biographie-div">
+      <label class="grey_italic">À propos (480 caractères max)</label>
+      <textarea rows="7" maxlength="480"></textarea>
+    </div>
+    
+    <div id="register-social-div">
+      <label class="grey_italic">Mes réseaux sociaux</label>
+      <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_facebook.png" />
+      <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_twitter.png" />
+      <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_instagram.png" />
+      <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_pinterest.png" />
+      <img onclick="register.socialAddClick($(this))" src="img/register/social-icons/add_google.png" />
+    </div>
+
+  </div>
+
+</div>

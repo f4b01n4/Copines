@@ -1,0 +1,165 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 10, 2014, 12:17:59 PM
+    Author     : poegel
+*/
+
+#newsDiv .news-feeds-category-div{
+  display: none;
+}
+
+#newsDiv .news-feeds-category-div.mes-copines{
+  display: block;
+}
+
+#newsDiv .news-feeds-category-div.mes-copines .feed-div{
+  display: none;
+}
+
+#newsDiv .news-feeds-category-div.mes-copines .feed-div#feed-1{
+  display: block;
+}
+
+#menu-btn-div{
+  left: 5%;
+  position: absolute;
+  top: 5%;
+  z-index: 10;
+  width: 90%;
+  text-align: center;
+}
+
+#menu-btn-div > div#carroussel-div > img {
+  margin: 0 1.1%;
+  width: 2.5%;
+}
+
+#menu-btn-div > p{
+  color: #FFFFFF;
+  font-size: 380%;
+  font-weight: bold;
+}
+
+#menu-btn-image{
+  float: left;
+  width: 13%;
+}
+
+.news-feeds-category-div{
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.news-feeds-category-div .feed-div{
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.news-feeds-category-div .feed-div > img{ /* Cover Image */
+  width: 100%;
+  height: 60%;
+}
+
+.news-feeds-category-div .news-article-stats{
+  color: #FFFFFF;
+  font-size: 330%;
+  right: 5%;
+  position: absolute;
+  text-align: right;
+  top: 5%;
+  width: 20%;
+  z-index: 20;
+}
+
+.news-feeds-category-div .news-article-stats .stat{
+  margin-bottom: 6%;
+  text-align: center;
+}
+
+.news-feeds-category-div .news-article-stats .stat > img{
+  width: 60%;
+  float: right;
+  margin-bottom: 5%;
+}
+
+.news-feeds-category-div .news-article-stats .stat > p{
+  margin-left: 20%;
+  text-align: center;
+  width: 100%;
+}
+
+.news-feeds-category-div .news-feed-content{
+  margin-top: -26%;
+  position: relative;
+  text-align: center;
+}
+
+.news-feeds-category-div .news-articleNewDiv{
+  background-image: url("../img/news/round-button_newarticles.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: #FFFFFF;
+  font-size: 320%;
+  line-height: 210%;
+  margin: 0 20% 5%;
+  text-align: center;
+  width: 60%;
+  cursor: pointer;
+}
+
+.news-feeds-category-div .news-blogger-photo{
+  margin: 0 40%;
+  width: 20%;
+}
+
+#newsDiv .news-feed-content .news-article-date{
+  font-family: Times New Roman, Arial, Helvetica, sans-serif;
+  font-size: 200%;
+  padding-top: 3%;
+}
+
+#newsDiv .news-feed-content .news-article-title{
+  color: #373737;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 400%;
+  padding: 2% 5%;
+  line-height: 1;
+  width: 90%;
+}
+
+#newsDiv .news-feed-content .news-article-blogname{
+  color: #888888;
+  font-family: Times New Roman,Arial,Helvetica,sans-serif;
+  font-size: 260%;
+  font-style: italic;
+}
+
+#newsDiv .news-feed-content .news-article-blogname > span{
+  font-weight: bold;
+}
+
+#newsDiv .news-feed-content .news-article-text{
+  font-family: Times New Roman,Arial,Helvetica,sans-serif;
+  font-size: 270%;
+  padding: 2% 5%;
+  text-align: justify;
+  width: 90%;
+  height: 59px;
+  overflow: hidden;
+}
+
+#newsDiv .news-article-page{
+  bottom: 1%;
+  font-size: 250%;
+  padding: 0 5%;
+  position: absolute;
+  text-align: right;
+  width: 90%;
+  z-index: 10;
+}

@@ -1,0 +1,171 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 14, 2014, 4:46:54 PM
+    Author     : poegel
+*/
+
+
+.reader-main-div{
+  background-image: url("../img/reader_profile/image1.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: #FFFFFF;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  height: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.menu-bar-bottom-spacer{
+  width: 100%;
+  float: left;
+  height: 56px;
+}
+
+.reader-main-div > img{
+  padding-bottom: 2%;
+  padding-top: 6%;
+  width: 25%;
+}
+
+.blogger-title{
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 280%;
+  font-weight: bold;
+  padding-bottom: 1%;
+}
+
+.reader-locale, .reader-status{
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 240%;
+  padding-bottom: 6%;
+}
+
+.blogger-status > span{
+  font-weight: bold;
+}
+
+#blogger-buttons{
+  color: #494949;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 230%;
+  width: 100%;
+}
+
+#blogger-buttons > p{
+  width: 32.7%;
+  float: left;
+  text-align: center;
+  line-height: 240%;
+  cursor: pointer;
+  border-left: 1px solid #CCC;
+}
+
+#blogger-buttons > p:first-child{
+  border-left: 0px;
+}
+
+#blogger-content{
+  float: left;
+  width: 100%;
+}
+
+.blogger-copines-text-div{
+  float: right;
+  padding-top: 14%;
+  width: 65%;
+}
+
+.blogger-copines-text-div > img {
+  cursor: pointer;
+  float: right;
+  margin-right: 5%;
+  position: absolute;
+  right: 0;
+  width: 10%;
+}
+
+.blogger-copines-text-div > p{
+  color: #1F1F1F;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 300%;
+}
+
+.blogger-copines-sets{
+  float: left;
+  width: 70%;
+  color: #424242;
+  font-size: 230%;
+}
+
+.blogger-copines-sets > p{
+  float: left;
+}
+
+.blogger-copines-sets > img{
+  float: left;
+  width: 8%;
+  margin-right: 3%;
+}
+
+.blogger-copines-sets > .explore-img-bag{
+  margin-left: 10%;
+}
+
+.blogger-copines-title-div{
+  margin: 5%;
+  overflow: hidden;
+}
+
+.blogger-copines-title-div > img{
+  float: left;
+  width: 5%;
+}
+
+.blogger-copines-title-div > p{
+  color: #1C1C1C;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 280%;
+  margin-left: 5%;
+}
+
+.blogger-mes-shops-div{
+  margin: 5%;
+  overflow: hidden;
+}
+
+.blogger-mes-shops-div > div{
+  color: #3F3F3F;
+  float: left;
+  font-size: 230%;
+  margin-bottom: 3%;
+  padding-left: 5%;
+  width: 95%; 
+}
+
+.blogger-mes-shops-div > div > img{
+  float: left;
+  padding-right: 5%;
+  width: 8%;
+}
+
+.blogger-mes-shops-div > div > p{
+  float: left;
+  padding-top: 1%;
+}
+
+.blogger-inspiration-text{
+  font-size: 280%;
+  color: #3f3f3f;
+  font-family: 'Apercu', Arial, Helvetica, sans-serif;
+  margin: 5%;
+}

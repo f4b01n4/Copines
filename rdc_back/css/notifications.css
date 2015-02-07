@@ -1,0 +1,69 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 11, 2014, 12:16:05 PM
+    Author     : poegel
+*/
+
+#menu-bar-top-monblog{
+  background-image: url("../img/menu/menu/top.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: relative;
+  float: left;
+}
+
+#menu-bar-top-monblog > img{
+  cursor: pointer;
+  float: left;
+  padding: 8% 6% 3%;
+  width: 4%;
+}
+
+#menu-bar-top-monblog > p{
+  color: #FFFFFF;
+  float: left;
+  font-size: 400%;
+  line-height: 2;
+  margin-left: 15%;
+  padding-top: 5%;
+  font-weight: bold;
+}
+
+.notify{
+  width: 96%;
+  padding: 2%;
+  border-bottom: 1px solid #CCC;
+  font-family: 'Apercu', Arial, Helvetica, sans-serif;
+  float: left;
+}
+
+.notify > img{
+  width: 25%;
+  margin-right: 5%;
+  float: left;
+}
+
+.notify > p.notification-text{
+  color: #000000;
+  float: left;
+  font-size: 250%;
+  padding-top: 7%;
+  width: 70%;
+}
+
+.notify > p.notification-time{
+  background-image: url("../img/slide/notifications/clock.png");
+  background-position: left 50%;
+  background-repeat: no-repeat;
+  background-size: 5% auto;
+  color: #999999;
+  float: left;
+  font-size: 230%;
+  padding-left: 5%;
+  width: 65%;
+}

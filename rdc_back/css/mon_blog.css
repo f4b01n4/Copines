@@ -1,0 +1,120 @@
+#menu-bar-top-monblog{
+  background-image: url("../img/menu/menu/top.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: relative;
+  float: left;
+}
+
+#menu-bar-top-monblog > img{
+  cursor: pointer;
+  float: left;
+  padding: 8% 6% 3%;
+  width: 4%;
+}
+
+#menu-bar-top-monblog > p{
+  color: #FFFFFF;
+  float: left;
+  font-size: 400%;
+  line-height: 2;
+  margin-left: 20%;
+  padding-top: 5%;
+  font-weight: bold;
+}
+
+#monblog-submenu{
+  float: left;
+  width: 100%;
+}
+
+#monblog-submenu > p {
+  border-bottom: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC;
+  float: left;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 230%;
+  line-height: 330%;
+  text-align: center;
+  width: 79px;
+}
+
+.monblog-status-div{
+  padding: 5% 0 0 3%;
+  width: 97%;
+  float: left;
+}
+
+.monblog-status-div > p{
+  background-image: url("../img/slide/mon_blog/icon_1.png");
+  background-position: left 50%;
+  background-repeat: no-repeat;
+  background-size: 10% 50%;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 200%;
+  padding-left: 5%;
+  float: left;
+}
+
+.monblog-lineDiv{
+  background-color: #CCCCCC;
+  float: left;
+  height: 1px;
+  margin-left: 2%;
+  margin-top: 2%;
+  width: 56%;
+}
+
+.monblog-status{
+  float: left;
+  padding: 3%;
+  width: 25%;
+}
+
+.monblog-status > p.status{
+  color: #141414;
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 400%;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 20%;
+}
+
+.monblog-status > p.description{
+  font-family: 'Apercu',Arial,Helvetica,sans-serif;
+  font-size: 140%;
+  line-height: 1;
+  text-align: center;
+}
+
+.monblog-status > img{
+  padding-left: 18%;
+  width: 64%;
+}
+
+.monblog-status > div > img{
+  float: left;
+  margin: 2% 3%;
+  width: 14%;
+}
+
+.monblog-status > div > p{
+  float: left;
+}
+
+#menu-bar-bottom-monblog {
+    background-color: #FFFFFF;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 9;
+    border-top: 1px solid #CCC;
+}
+
+#menu-bar-bottom-monblog > img {
+    cursor: pointer;
+    margin: 5px 27px;
+    width: 7%;
+}
