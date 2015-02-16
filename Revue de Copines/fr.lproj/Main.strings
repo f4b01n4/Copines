@@ -1,0 +1,204 @@
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "0fT-Th-tRQ"; */
+"0fT-Th-tRQ.normalTitle" = "Button";
+
+/* Class = "IBUITextField"; placeholder = "Nom"; ObjectID = "1Qv-JP-F2w"; */
+"1Qv-JP-F2w.placeholder" = "Nom";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "26x-hM-Y6E"; */
+"26x-hM-Y6E.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Blogueuses populaires"; ObjectID = "2NR-cq-WxK"; */
+"2NR-cq-WxK.text" = "Blogueuses populaires";
+
+/* Class = "IBUILabel"; text = "Mes réseaux sociaux"; ObjectID = "3A8-nA-qc1"; */
+"3A8-nA-qc1.text" = "Mes réseaux sociaux";
+
+/* Class = "IBUILabel"; text = "Bienvenue sur Copines"; ObjectID = "3TT-vN-Dcc"; */
+"3TT-vN-Dcc.text" = "Bienvenue sur Copines";
+
+/* Class = "IBUITextField"; placeholder = "Adresse mail"; ObjectID = "4Q7-Sm-wZB"; */
+"4Q7-Sm-wZB.placeholder" = "Adresse mail";
+
+/* Class = "IBUILabel"; text = "À propos (480 caractères max)"; ObjectID = "5wS-A2-IES"; */
+"5wS-A2-IES.text" = "À propos (480 caractères max)";
+
+/* Class = "IBUILabel"; text = "Si vous êtes une bloqueuse, c'est par ici"; ObjectID = "678-1m-ffk"; */
+"678-1m-ffk.text" = "Si vous êtes une bloqueuse, c'est par ici";
+
+/* Class = "IBUILabel"; text = "Mes réseaux sociaux"; ObjectID = "75J-Ji-HQD"; */
+"75J-Ji-HQD.text" = "Mes réseaux sociaux";
+
+/* Class = "IBUILabel"; text = "Localisation"; ObjectID = "7QQ-fD-dAV"; */
+"7QQ-fD-dAV.text" = "Localisation";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "8w6-6l-i22"; */
+"8w6-6l-i22.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Followers"; ObjectID = "ALM-GU-63s"; */
+"ALM-GU-63s.text" = "Followers";
+
+/* Class = "IBUILabel"; text = "Photo de couverture"; ObjectID = "BZN-Zc-apY"; */
+"BZN-Zc-apY.text" = "Photo de couverture";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "CJn-BB-ZcY"; */
+"CJn-BB-ZcY.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Faites glisser pour continuer..."; ObjectID = "CVG-sk-qCP"; */
+"CVG-sk-qCP.text" = "Faites glisser pour continuer...";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "D0L-W1-N3m"; */
+"D0L-W1-N3m.normalTitle" = "Button";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "D7G-uy-sOL"; */
+"D7G-uy-sOL.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "ou par mail"; ObjectID = "DPO-UC-Jbs"; */
+"DPO-UC-Jbs.text" = "ou par mail";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "DcX-oL-KIb"; */
+"DcX-oL-KIb.normalTitle" = "Button";
+
+/* Class = "IBUIButton"; normalTitle = "Mot de passe ou nom d'utilisateur oublié ?"; ObjectID = "EgA-2J-liw"; */
+"EgA-2J-liw.normalTitle" = "Mot de passe ou nom d'utilisateur oublié ?";
+
+/* Class = "IBUILabel"; text = "Articles"; ObjectID = "FgZ-wt-dlD"; */
+"FgZ-wt-dlD.text" = "Articles";
+
+/* Class = "IBUILabel"; text = "Catégorie (3 max)"; ObjectID = "Fqn-AF-0gW"; */
+"Fqn-AF-0gW.text" = "Catégorie (3 max)";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "Gq8-CW-kDu"; */
+"Gq8-CW-kDu.normalTitle" = "Button";
+
+/* Class = "IBUITextField"; placeholder = "Nom"; ObjectID = "HDQ-up-1qm"; */
+"HDQ-up-1qm.placeholder" = "Nom";
+
+/* Class = "IBUITextField"; text = "Le Blog de Betty"; ObjectID = "HDQ-up-1qm"; */
+"HDQ-up-1qm.text" = "Le Blog de Betty";
+
+/* Class = "IBUILabel"; text = "À propos (480 caractères max)"; ObjectID = "J1h-ci-toV"; */
+"J1h-ci-toV.text" = "À propos (480 caractères max)";
+
+/* Class = "IBUILabel"; text = "Photo"; ObjectID = "J3F-RL-lbE"; */
+"J3F-RL-lbE.text" = "Photo";
+
+/* Class = "IBUILabel"; text = "Nom"; ObjectID = "JkO-i0-GKK"; */
+"JkO-i0-GKK.text" = "Nom";
+
+/* Class = "IBUITextField"; placeholder = "Nom complet"; ObjectID = "LDr-6Y-e4o"; */
+"LDr-6Y-e4o.placeholder" = "Nom complet";
+
+/* Class = "IBUILabel"; text = "nouveaux blogs sur mobile."; ObjectID = "OD2-wy-Jlw"; */
+"OD2-wy-Jlw.text" = "nouveaux blogs sur mobile.";
+
+/* Class = "IBUITextField"; placeholder = "Blog Url"; ObjectID = "P2u-JT-utd"; */
+"P2u-JT-utd.placeholder" = "Blog Url";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "SD0-5H-OzB"; */
+"SD0-5H-OzB.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Nom"; ObjectID = "StZ-fu-w5v"; */
+"StZ-fu-w5v.text" = "Nom";
+
+/* Class = "IBUITextField"; placeholder = "Blog"; ObjectID = "TWy-4g-0d4"; */
+"TWy-4g-0d4.placeholder" = "Blog";
+
+/* Class = "IBUITextField"; text = "http://leblogdebetty.com"; ObjectID = "TWy-4g-0d4"; */
+"TWy-4g-0d4.text" = "http://leblogdebetty.com";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "UTZ-pa-UXQ"; */
+"UTZ-pa-UXQ.normalTitle" = "Button";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "UdX-Ue-IQY"; */
+"UdX-Ue-IQY.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Lisez et découvrez de"; ObjectID = "WdD-ZY-jvb"; */
+"WdD-ZY-jvb.text" = "Lisez et découvrez de";
+
+/* Class = "IBUILabel"; text = "Photo de couverture"; ObjectID = "XWE-AF-sbc"; */
+"XWE-AF-sbc.text" = "Photo de couverture";
+
+/* Class = "IBUITextField"; placeholder = "Nom d'utilisateur ou adresse mail"; ObjectID = "YgI-On-pML"; */
+"YgI-On-pML.placeholder" = "Nom d'utilisateur ou adresse mail";
+
+/* Class = "IBUILabel"; text = "Following"; ObjectID = "Yss-lX-usD"; */
+"Yss-lX-usD.text" = "Following";
+
+/* Class = "IBUITextField"; placeholder = "Localisation"; ObjectID = "ZHd-x8-Npt"; */
+"ZHd-x8-Npt.placeholder" = "Localisation";
+
+/* Class = "IBUILabel"; text = "Photo"; ObjectID = "a0P-tX-vGI"; */
+"a0P-tX-vGI.text" = "Photo";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "adB-Fx-8qu"; */
+"adB-Fx-8qu.normalTitle" = "Button";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "gHN-xG-NYt"; */
+"gHN-xG-NYt.normalTitle" = "Button";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "hEA-tT-ACo"; */
+"hEA-tT-ACo.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Crée ton compte Copines"; ObjectID = "i6f-xl-Nbb"; */
+"i6f-xl-Nbb.text" = "Crée ton compte Copines";
+
+/* Class = "IBUILabel"; text = "Blog"; ObjectID = "iDm-kJ-H8j"; */
+"iDm-kJ-H8j.text" = "Blog";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "jRN-tb-RRV"; */
+"jRN-tb-RRV.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "jcb-oL-Zz3"; */
+"jcb-oL-Zz3.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "kom-ce-NwQ"; */
+"kom-ce-NwQ.normalTitle" = "Button";
+
+/* Class = "IBUITextField"; placeholder = "Localisation"; ObjectID = "mGb-no-9on"; */
+"mGb-no-9on.placeholder" = "Localisation";
+
+/* Class = "IBUITextField"; text = "Paris, France"; ObjectID = "mGb-no-9on"; */
+"mGb-no-9on.text" = "Paris, France";
+
+/* Class = "IBUILabel"; text = "Localisation"; ObjectID = "mHm-Dz-iTX"; */
+"mHm-Dz-iTX.text" = "Localisation";
+
+/* Class = "IBUITextView"; text = "Le jour où j'ai ouvert mon blog, en juin 2006, je n'avais aucune idée de l'aventure dans laquelle je me lançais. J'avais juste envie de communiquer autrement, de partager mes illustrations d'une façon nouvelle, et puis surtout, envie de m'amuser."; ObjectID = "o7Q-UI-MN2"; */
+"o7Q-UI-MN2.text" = "Le jour où j'ai ouvert mon blog, en juin 2006, je n'avais aucune idée de l'aventure dans laquelle je me lançais. J'avais juste envie de communiquer autrement, de partager mes illustrations d'une façon nouvelle, et puis surtout, envie de m'amuser.";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "oac-gS-o3J"; */
+"oac-gS-o3J.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "En continuant, tu acceptes les conditions d'utilisation et la Confidentialitè."; ObjectID = "of1-hX-MBs"; */
+"of1-hX-MBs.text" = "En continuant, tu acceptes les conditions d'utilisation et la Confidentialitè.";
+
+/* Class = "IBUILabel"; text = "Tu y es presque !"; ObjectID = "qLb-cE-qBu"; */
+"qLb-cE-qBu.text" = "Tu y es presque !";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "tjx-hk-Vds"; */
+"tjx-hk-Vds.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Choisis des thèmes pour commencer"; ObjectID = "tzD-0A-YvP"; */
+"tzD-0A-YvP.text" = "Choisis des thèmes pour commencer";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "uan-fe-pet"; */
+"uan-fe-pet.normalTitle" = "Button";
+
+/* Class = "IBUITextField"; placeholder = "Mot de passe"; ObjectID = "uca-30-uP4"; */
+"uca-30-uP4.placeholder" = "Mot de passe";
+
+/* Class = "IBUILabel"; text = "Par mail"; ObjectID = "wqK-Ir-Nvo"; */
+"wqK-Ir-Nvo.text" = "Par mail";
+
+/* Class = "IBUILabel"; text = "Catégorie (3 max)"; ObjectID = "wx6-3o-lYT"; */
+"wx6-3o-lYT.text" = "Catégorie (3 max)";
+
+/* Class = "IBUILabel"; text = "Blog"; ObjectID = "yQh-w7-32F"; */
+"yQh-w7-32F.text" = "Blog";
+
+/* Class = "IBUITextField"; placeholder = "Mot de passe"; ObjectID = "yf3-iC-4SH"; */
+"yf3-iC-4SH.placeholder" = "Mot de passe";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "z7X-ya-5Zf"; */
+"z7X-ya-5Zf.normalTitle" = "Button";

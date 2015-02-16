@@ -407,12 +407,6 @@
     [loader startAnimating];
     
     // Cover Photo
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewArticle)];
-    singleTap.numberOfTapsRequired = 1;
-    imageView.userInteractionEnabled = YES;
-    imageView.tag = 99;
-    [imageView addGestureRecognizer:singleTap];
-    
     if (photo != (id)[NSNull null]) {
         id path = photo;
         NSURL *imageUrl = [NSURL URLWithString:path];
@@ -562,6 +556,12 @@
     [articleView addSubview:blogTitleLabel];
     [articleView addSubview:self.articleContentView];
     //[articleView addSubview:pageCountLabel];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewArticle)];
+    singleTap.numberOfTapsRequired = 1;
+    articleView.userInteractionEnabled = YES;
+    articleView.tag = 99;
+    [articleView addGestureRecognizer:singleTap];
     
     [self.views addObject:articleView];
     

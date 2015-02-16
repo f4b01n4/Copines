@@ -365,7 +365,7 @@
                 paragrahStyle.lineSpacing = 7;
                 if (self.view.frame.size.width <= 320)
                     paragrahStyle.lineSpacing = 6;
-                paragrahStyle.alignment = NSTextAlignmentCenter;
+                paragrahStyle.alignment = NSTextAlignmentLeft;
                 NSDictionary *attrsDictionary = @{
                                                   NSParagraphStyleAttributeName: paragrahStyle,
                                                   NSFontAttributeName: [UIFont fontWithName:@"Georgia" size:16],
