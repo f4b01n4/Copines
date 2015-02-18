@@ -17,6 +17,7 @@
 #import "AddCategoriesViewController.h"
 #import "DiscoverViewController.h"
 #import "ManageBlogViewController.h"
+#import "ManageProfileViewController.h"
 #import "BloggerProfileViewController.h"
 #import "User.h"
 #import "Localization.h"
@@ -473,6 +474,14 @@
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2;
         
         [profileImageView setImage:profileImg];
+    } else {
+        UIImage *profileImg = [UIImage imageNamed:@"default_profile_picture.png"];
+        profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width * 105) / 320, 40, (self.view.frame.size.width * 70) / 320, (self.view.frame.size.width * 70) / 320)];
+        
+        profileImageView.clipsToBounds = YES;
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2;
+        
+        [profileImageView setImage:profileImg];
     }
     
     // Blog Title
@@ -489,6 +498,13 @@
     [manageBlogButton setImage:manageBlogImage forState:UIControlStateNormal];
     manageBlogButton.frame = CGRectMake(((self.view.frame.size.width * 140) / 320) - (manageBlogImage.size.width / 4), 150, manageBlogImage.size.width / 2, manageBlogImage.size.height / 2);
     [manageBlogButton addTarget:self action:@selector(manageBlog) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Manage Profile Button
+    UIImage *manageProfileImage = [UIImage imageNamed:@"manage_profile.png"];
+    UIButton *manageProfileButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [manageProfileButton setImage:manageProfileImage forState:UIControlStateNormal];
+    manageProfileButton.frame = CGRectMake(((self.view.frame.size.width * 140) / 320) - (manageProfileImage.size.width / 4), 150, manageProfileImage.size.width / 2, manageProfileImage.size.height / 2);
+    [manageProfileButton addTarget:self action:@selector(manageProfile) forControlEvents:UIControlEventTouchUpInside];
     
     // Line Separator
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 192, menuWidth, 1)];
@@ -574,6 +590,8 @@
     
     if (user.type == 2)
         [self.menu addSubview:manageBlogButton];
+    else
+        [self.menu addSubview:manageProfileButton];
     
     [self.menu addSubview:line];
     [self.menu addSubview:scrollContent];
@@ -738,11 +756,21 @@
     [self.navigationController pushViewController:manageBlogViewController animated:YES];
 }
 
+- (void)manageProfile {
+    [self toggleMenu];
+    
+    ManageProfileViewController *manageProfileViewController;
+    manageProfileViewController = [self.theStoryboard instantiateViewControllerWithIdentifier:@"ManageProfileViewController"];
+    
+    [self.navigationController pushViewController:manageProfileViewController animated:YES];
+}
+
 - (void)search {
     [self toggleMenu];
     
     DiscoverViewController *discoverViewController;
     discoverViewController = [self.theStoryboard instantiateViewControllerWithIdentifier:@"DiscoverViewController"];
+    discoverViewController.hvc = self;
     
     [self.navigationController pushViewController:discoverViewController animated:YES];
 }
@@ -770,6 +798,16 @@
     }
     
     [self toggleMenu];
+    [self.navigationController pushViewController:self.bloggerFeedViewController animated:YES];
+}
+
+- (void)viewCopineFromDiscover:(NSInteger)blogId withTitle:(NSString*)title {
+    self.bloggerFeedViewController = [self.theStoryboard instantiateViewControllerWithIdentifier:@"three"];
+    self.bloggerFeedViewController.blogId = blogId;
+    
+    self.bloggerFeedViewController.blogTitle = title;
+    
+    //[self toggleMenu];
     [self.navigationController pushViewController:self.bloggerFeedViewController animated:YES];
 }
 

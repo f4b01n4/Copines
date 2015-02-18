@@ -7,6 +7,8 @@
 //
 
 #import "Discover2ViewController.h"
+#import "BloggerFeedViewController.h"
+#import "HomeViewController.h"
 #import "SimpleTableCell.h"
 #import "User.h"
 #import "Localization.h"
@@ -71,6 +73,10 @@
     tableData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.translucent = NO;
+}
+
 - (void)viewDidLayoutSubviews {
     [self.tableView setFrame:CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y + 20, self.tableView.frame.size.width, self.tableView.frame.size.height - 65)];
 }
@@ -110,6 +116,7 @@
     int theme3 = [_themes[2] integerValue];
     int like = [[[tableData objectForKey:@"data"][indexPath.row] objectForKey:@"own_blog_like"] integerValue];
     
+    cell.tag = [[[tableData objectForKey:@"data"][indexPath.row] objectForKey:@"blog_id"] integerValue];
     cell.nameLabel.text = [[tableData objectForKey:@"data"][indexPath.row] objectForKey:@"blog_name"];
     cell.themesLabel.text = [NSString stringWithFormat:@"%@, %@, %@", themes[theme1], themes[theme2], themes[theme3]];
     
@@ -125,11 +132,11 @@
     }
     
     if (like == 0) {
-        [cell.checkImageView setAlpha:0.5f];
         [cell.checkImageView setTag:0];
+        [cell.checkImageView setImage:[UIImage imageNamed:@"add-categories.png"]];
     } else {
-        [cell.checkImageView setAlpha:1.0f];
         [cell.checkImageView setTag:1];
+        [cell.checkImageView setImage:[UIImage imageNamed:@"check-categories.png"]];
     }
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkCopine:)];
@@ -141,12 +148,21 @@
 }
 
 - (void)checkCopine:(UITapGestureRecognizer*)recognizer {
-    UIView *v = recognizer.view;
+    UIImageView *v = recognizer.view;
     
-    if (v.alpha == 0.5)
-        [v setAlpha:1.0f];
-    else
-        [v setAlpha:0.5f];
+    if (v.tag == 0) {
+        [v setTag:1];
+        [v setImage:[UIImage imageNamed:@"check-categories.png"]];
+    } else {
+        [v setTag:0];
+        [v setImage:[UIImage imageNamed:@"add-categories.png"]];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SimpleTableCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    [self.dvc.hvc viewCopineFromDiscover:theCell.tag withTitle:theCell.nameLabel.text];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

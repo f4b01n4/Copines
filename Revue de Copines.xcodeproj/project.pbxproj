@@ -94,6 +94,10 @@
 		4B6C695F1A078C26007BC186 /* 1024 Retina App Icon copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6C695E1A078C26007BC186 /* 1024 Retina App Icon copy.png */; };
 		4B6C69611A07942B007BC186 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6C69601A07942B007BC186 /* libsqlite3.dylib */; };
 		4B6C69641A079465007BC186 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C69631A079465007BC186 /* DBManager.m */; };
+		4B6CA64D1A9495D500FE68D0 /* add-categories.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6CA64C1A9495D500FE68D0 /* add-categories.png */; };
+		4B80D9891A921AAB00EC2FC9 /* default_profile_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B80D9871A921AAB00EC2FC9 /* default_profile_picture.png */; };
+		4B80D98C1A921C7B00EC2FC9 /* manage_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B80D98B1A921C7B00EC2FC9 /* manage_profile.png */; };
+		4B80D98F1A922F6C00EC2FC9 /* ManageProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B80D98E1A922F6C00EC2FC9 /* ManageProfileViewController.m */; };
 		4B8A8676194BB26D0088A6ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A8675194BB26D0088A6ED /* Foundation.framework */; };
 		4B8A8678194BB26D0088A6ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A8677194BB26D0088A6ED /* CoreGraphics.framework */; };
 		4B8A867A194BB26D0088A6ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8A8679194BB26D0088A6ED /* UIKit.framework */; };
@@ -285,6 +289,11 @@
 		4B6C69601A07942B007BC186 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4B6C69621A079465007BC186 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		4B6C69631A079465007BC186 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		4B6CA64C1A9495D500FE68D0 /* add-categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-categories.png"; sourceTree = "<group>"; };
+		4B80D9871A921AAB00EC2FC9 /* default_profile_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_profile_picture.png; sourceTree = "<group>"; };
+		4B80D98B1A921C7B00EC2FC9 /* manage_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manage_profile.png; sourceTree = "<group>"; };
+		4B80D98D1A922F6C00EC2FC9 /* ManageProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageProfileViewController.h; sourceTree = "<group>"; };
+		4B80D98E1A922F6C00EC2FC9 /* ManageProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageProfileViewController.m; sourceTree = "<group>"; };
 		4B8A8672194BB26D0088A6ED /* Revue de Copines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Revue de Copines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8A8675194BB26D0088A6ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4B8A8677194BB26D0088A6ED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -478,6 +487,7 @@
 		4B55510A195121110073EC37 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				4B80D98B1A921C7B00EC2FC9 /* manage_profile.png */,
 				4B4A4E88195191C300509535 /* follow.png */,
 				4B4A4E8219518DFA00509535 /* bullet-point.png */,
 				4B4A4E8419518DFA00509535 /* search.png */,
@@ -614,6 +624,8 @@
 				4B4A17851A2C8CE5004626A1 /* SimpleTableCell.m */,
 				4B4A4EB01951E6C200509535 /* ManageBlogViewController.h */,
 				4B4A4EB11951E6C200509535 /* ManageBlogViewController.m */,
+				4B80D98D1A922F6C00EC2FC9 /* ManageProfileViewController.h */,
+				4B80D98E1A922F6C00EC2FC9 /* ManageProfileViewController.m */,
 				4BFF0F491951F70D0079BD27 /* BloggerProfileViewController.h */,
 				4BFF0F4A1951F70D0079BD27 /* BloggerProfileViewController.m */,
 				4B98354B19EED1870061E987 /* PageScrollViewController.h */,
@@ -625,6 +637,8 @@
 		4B8A867C194BB26D0088A6ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4B6CA64C1A9495D500FE68D0 /* add-categories.png */,
+				4B80D9871A921AAB00EC2FC9 /* default_profile_picture.png */,
 				4B5F43BF1A3B2F2300D2C1DD /* default_article.jpg */,
 				4B24E1981A122B3300BF2E54 /* SplashScreen */,
 				4BB7C6991A0B7881003255D8 /* black_gradient_top.png */,
@@ -838,6 +852,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B4A4E921951CD7F00509535 /* round-button_newarticles.png in Resources */,
+				4B6CA64D1A9495D500FE68D0 /* add-categories.png in Resources */,
 				4B24E1961A121CC400BF2E54 /* fond_blanc.png in Resources */,
 				4B8A873A194BD6AE0088A6ED /* Mode.png in Resources */,
 				4B8A86D0194BBF4F0088A6ED /* Apercu-Medium.otf in Resources */,
@@ -853,6 +868,7 @@
 				4B3259AE194C837700ABC86A /* creercompteblogueuse.png in Resources */,
 				4B5F4F76194F53BB00297218 /* menu_slider.png in Resources */,
 				4B5F4F79194F613100297218 /* dot_opacity_50.png in Resources */,
+				4B80D98C1A921C7B00EC2FC9 /* manage_profile.png in Resources */,
 				4B0698F61A136226008BD5E6 /* splash_iphone5.png in Resources */,
 				4B4A4E8719518DFA00509535 /* search.png in Resources */,
 				4B4A4EAC1951DCCB00509535 /* check-categories.png in Resources */,
@@ -872,6 +888,7 @@
 				4B3259B1194C8CB300ABC86A /* facebook.png in Resources */,
 				4BFF0F501951F9BB0079BD27 /* follow1.png in Resources */,
 				4B3259EE194CA9C600ABC86A /* icon_btn_add_pinterest.png in Resources */,
+				4B80D9891A921AAB00EC2FC9 /* default_profile_picture.png in Resources */,
 				4BA1EE731A02ABF00078274A /* categories_overlay.png in Resources */,
 				4BB6E8221A1C9D5C00CF06D0 /* copines.sql in Resources */,
 				4B8A8734194BD6AE0088A6ED /* Décoration.png in Resources */,
@@ -967,6 +984,7 @@
 				4B580E8D19C9DC060011514A /* User.m in Sources */,
 				4B8F35351950F457003F1013 /* SidebarViewController.m in Sources */,
 				4B42D66C194CE09800CAD9C0 /* PageOneViewController.m in Sources */,
+				4B80D98F1A922F6C00EC2FC9 /* ManageProfileViewController.m in Sources */,
 				4B2DC6231A52CD0E003B0EE3 /* PageViewController.m in Sources */,
 				4BCDB9C21A052CB800659548 /* Blog.m in Sources */,
 				4B422E461A5AE9B900A40203 /* Discover3ViewController.m in Sources */,

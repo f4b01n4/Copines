@@ -177,7 +177,7 @@
         [self.commentsLabel setHidden:NO];
     }
     @catch (NSException *e) {
-        NSLog(@"Exception here");
+        NSLog(@"Exception here2");
         NSLog(@"%@", e);
         
         [self.likeButton setSelected:NO];

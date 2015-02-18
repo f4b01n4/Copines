@@ -151,6 +151,14 @@
                         @"updating categories" : @{
                             @"en" : @"Updating Categories",
                             @"fr" : @"Mise à jour Catégories"
+                        },
+                        @"password mismatch" : @{
+                            @"en" : @"Password mismatch",
+                            @"fr" : @"Mot de passe erroné"
+                        },
+                        @"the passwords don't match" : @{
+                            @"en" : @"The passwords don't match",
+                            @"fr" : @"Les mots de passe ne correspondent pas"
                         }
                     };
     

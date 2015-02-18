@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class HomeViewController;
+
 @interface DiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) HomeViewController *hvc;
 @property (strong, nonatomic) UIStoryboard *theStoryboard;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

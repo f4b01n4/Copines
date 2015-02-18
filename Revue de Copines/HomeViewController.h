@@ -54,5 +54,6 @@
 -(void)hideNArticlesButton;
 -(void)reinitCategoriesLoading;
 -(void)reinitCategories;
+-(void)viewCopineFromDiscover:(NSInteger)blogId withTitle:(NSString*)title;
 
 @end
