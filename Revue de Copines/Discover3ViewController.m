@@ -8,6 +8,7 @@
 
 #import "Discover3ViewController.h"
 #import "SimpleTableCell.h"
+#import "HomeViewController.h"
 #import "User.h"
 #import "Localization.h"
 
@@ -19,8 +20,7 @@
     NSDictionary *tableData;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // Set Search Bar
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 290, 64)];
@@ -54,6 +53,10 @@
     self.navigationController.navigationBar.translucent = NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.translucent = NO;
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     self.sdc.displaysSearchBarInNavigationBar = NO;
 }
@@ -74,8 +77,6 @@
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
     NSError *error = nil;
-    
-    NSLog(@"%@", data);
     
     tableData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
@@ -121,6 +122,7 @@
     int theme3 = [_themes[2] integerValue];
     int like = [[[tableData objectForKey:@"data"][indexPath.row] objectForKey:@"own_blog_like"] integerValue];
     
+    cell.tag = [[[tableData objectForKey:@"data"][indexPath.row] objectForKey:@"blog_id"] integerValue];
     cell.nameLabel.text = [[tableData objectForKey:@"data"][indexPath.row] objectForKey:@"blog_name"];
     cell.themesLabel.text = [NSString stringWithFormat:@"%@, %@, %@", themes[theme1], themes[theme2], themes[theme3]];
     
@@ -136,11 +138,11 @@
     }
     
     if (like == 0) {
-        [cell.checkImageView setAlpha:0.5f];
         [cell.checkImageView setTag:0];
+        [cell.checkImageView setImage:[UIImage imageNamed:@"add-categories.png"]];
     } else {
-        [cell.checkImageView setAlpha:1.0f];
         [cell.checkImageView setTag:1];
+        [cell.checkImageView setImage:[UIImage imageNamed:@"check-categories.png"]];
     }
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkCopine:)];
@@ -152,21 +154,49 @@
 }
 
 - (void)checkCopine:(UITapGestureRecognizer*)recognizer {
-    UIView *v = recognizer.view;
+    UIImageView *v = recognizer.view;
+    SimpleTableCell *cell = v.superview.superview;
+    User *user = [User getInstance];
     
-    if (v.alpha == 0.5)
-        [v setAlpha:1.0f];
-    else
-        [v setAlpha:0.5f];
+    if (v.tag == 0) {
+        [v setTag:1];
+        [v setImage:[UIImage imageNamed:@"check-categories.png"]];
+        
+        // Subscribe to Blog
+        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/subscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        
+        NSURL *url = [NSURL URLWithString:sUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        
+        [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    } else {
+        [v setTag:0];
+        [v setImage:[UIImage imageNamed:@"add-categories.png"]];
+        
+        // Unsubscribe to Blog
+        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unsubscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        
+        NSURL *url = [NSURL URLWithString:sUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        
+        [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 67;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SimpleTableCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    [self.dvc.hvc viewCopineFromDiscover:theCell.tag withTitle:theCell.nameLabel.text];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

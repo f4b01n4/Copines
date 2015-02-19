@@ -21,13 +21,13 @@
     NSInteger articles;
 }
 
-@property (nonatomic) NSInteger blogId;
-@property (nonatomic) NSInteger userId;
 @property (retain, nonatomic) NSString *name;
 @property (retain, nonatomic) NSString *url;
 @property (retain, nonatomic) NSString *backgroundImage;
 @property (retain, nonatomic) NSArray *themes;
 @property (retain, nonatomic) NSString *blogDescription;
+@property (nonatomic) NSInteger blogId;
+@property (nonatomic) NSInteger userId;
 @property (nonatomic) NSInteger likes;
 @property (nonatomic) NSInteger followers;
 @property (nonatomic) NSInteger articles;

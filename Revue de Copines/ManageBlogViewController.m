@@ -17,8 +17,7 @@
 
 @implementation ManageBlogViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -26,10 +25,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // Hide Back Button
     self.navigationItem.hidesBackButton = YES;
@@ -102,10 +99,8 @@
     
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) popBack {
@@ -172,7 +167,6 @@
         
         [request setHTTPBody:body];
         
-        
         [self.backItem setEnabled:FALSE];
         
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -183,9 +177,6 @@
             NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"Done");
-                NSLog(@"%@", returnString);
-                
                 [self.backItem setEnabled:TRUE];
                 
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -460,40 +451,36 @@
     }
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
-{
+-(BOOL)textFieldShouldReturn:(UITextField*)textField {
     NSInteger nextTag = textField.tag + 1;
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    
     if (nextResponder && nextTag != 3) {
         [nextResponder becomeFirstResponder];
     } else {
         [textField resignFirstResponder];
     }
+    
     return NO;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     [self animateTextField: textField up: YES];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     [self animateTextField: textField up: NO];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
+- (void)textViewDidBeginEditing:(UITextView *)textView {
     [self animateTextView: textView up: YES];
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
+- (void)textViewDidEndEditing:(UITextView *)textView {
     [self animateTextView: textView up: NO];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if([text isEqualToString:@"\n"]){
         [textView resignFirstResponder];
         
@@ -502,11 +489,10 @@
         return YES;
 }
 
-- (void) animateTextField: (UITextField*) textField up: (BOOL) up
-{
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up {
     if (textField.tag == 3) {
-        const int movementDistance = 150; // tweak as needed
-        const float movementDuration = 0.3f; // tweak as needed
+        const int movementDistance = 150;
+        const float movementDuration = 0.3f;
         
         int movement = (up ? -movementDistance : movementDistance);
         
@@ -518,10 +504,9 @@
     }
 }
 
-- (void) animateTextView: (UITextView*) textView up: (BOOL) up
-{
-    const int movementDistance = 200; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
+- (void) animateTextView: (UITextView*) textView up: (BOOL) up {
+    const int movementDistance = 200;
+    const float movementDuration = 0.3f;
     
     int movement = (up ? -movementDistance : movementDistance);
     

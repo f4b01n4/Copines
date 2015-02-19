@@ -19,8 +19,7 @@
 
 @implementation Subscription4ViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -28,10 +27,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.registerItem = [[UIBarButtonItem alloc] initWithTitle:@"Enregistrer" style:UIBarButtonItemStylePlain target:self action:@selector(register)];
     self.backItem = [[UIBarButtonItem alloc] initWithTitle:@"Annuler" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
@@ -140,17 +137,14 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)modeBtnPressed:(id)sender {
@@ -503,53 +497,49 @@
     }
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
-{
+-(BOOL)textFieldShouldReturn:(UITextField*)textField {
     NSInteger nextTag = textField.tag + 1;
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    
     if (nextResponder && nextTag != 3) {
         [nextResponder becomeFirstResponder];
     } else {
         [textField resignFirstResponder];
     }
+    
     return NO;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     [self animateTextField: textField up: YES];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     [self animateTextField: textField up: NO];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
+- (void)textViewDidBeginEditing:(UITextView *)textView {
     [self animateTextView: textView up: YES];
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
+- (void)textViewDidEndEditing:(UITextView *)textView {
     [self animateTextView: textView up: NO];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if([text isEqualToString:@"\n"]){
         [textView resignFirstResponder];
         
         return NO;
-    } else
-        return YES;
+    }
+    
+    return YES;
 }
 
-- (void) animateTextField: (UITextField*) textField up: (BOOL) up
-{
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up {
     if (textField.tag == 3) {
-        const int movementDistance = 150; // tweak as needed
-        const float movementDuration = 0.3f; // tweak as needed
+        const int movementDistance = 150;
+        const float movementDuration = 0.3f;
         
         int movement = (up ? -movementDistance : movementDistance);
         
@@ -561,10 +551,9 @@
     }
 }
 
-- (void) animateTextView: (UITextView*) textView up: (BOOL) up
-{
-    const int movementDistance = 200; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
+- (void) animateTextView: (UITextView*) textView up: (BOOL) up {
+    const int movementDistance = 200;
+    const float movementDuration = 0.3f;
     
     int movement = (up ? -movementDistance : movementDistance);
     

@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class HomeViewController;
+
 @interface BloggerProfileViewController : UIViewController
 
+@property (strong, nonatomic) HomeViewController *hvc;
 @property (strong, nonatomic) UIButton *likeButton;
+@property (strong, nonatomic) NSDictionary *articleData;
+@property (strong, nonatomic) IBOutlet UIImageView *profilePhoto;
+@property (strong, nonatomic) UIStoryboard *theStoryboard;
 @property (weak, nonatomic) IBOutlet UILabel *url;
 @property (weak, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) IBOutlet UITextView *bio;
@@ -21,11 +27,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *followingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *following;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) NSDictionary *articleData;
-@property (strong, nonatomic) IBOutlet UIImageView *profilePhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *coverPhoto;
 @property (weak, nonatomic) IBOutlet UIButton *viewArticlesBtn;
-@property (strong, nonatomic) UIStoryboard *theStoryboard;
+@property (nonatomic) BOOL needToRefresh;
 
 - (IBAction)bloggerFeed:(id)sender;
 

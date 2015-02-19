@@ -10,9 +10,10 @@
 
 @interface SimpleTableCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
-@property (nonatomic, weak) IBOutlet UILabel *themesLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *photoImageView;
-@property (nonatomic, weak) IBOutlet UIImageView *checkImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *themesLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
+@property (weak, nonatomic) IBOutlet UIView *separator;
 
 @end

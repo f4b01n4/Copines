@@ -19,12 +19,12 @@
     NSInteger comments;
 }
 
-@property (nonatomic) NSInteger articleId;
-@property (nonatomic) NSInteger blogId;
 @property (retain, nonatomic) NSString *photo;
 @property (retain, nonatomic) NSString *title;
 @property (retain, nonatomic) NSString *content;
 @property (retain, nonatomic) NSString *url;
+@property (nonatomic) NSInteger articleId;
+@property (nonatomic) NSInteger blogId;
 @property (nonatomic) NSInteger likes;
 @property (nonatomic) NSInteger comments;
 

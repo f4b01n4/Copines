@@ -21,8 +21,7 @@
     NSDictionary *tableData;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -32,7 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // Hide Back Button
     self.navigationItem.hidesBackButton = YES;
@@ -149,13 +147,33 @@
 
 - (void)checkCopine:(UITapGestureRecognizer*)recognizer {
     UIImageView *v = recognizer.view;
+    SimpleTableCell *cell = v.superview.superview;
+    User *user = [User getInstance];
     
     if (v.tag == 0) {
         [v setTag:1];
         [v setImage:[UIImage imageNamed:@"check-categories.png"]];
+        
+        // Subscribe to Blog
+        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/subscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        
+        NSURL *url = [NSURL URLWithString:sUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        
+        [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     } else {
         [v setTag:0];
         [v setImage:[UIImage imageNamed:@"add-categories.png"]];
+        
+        // Unsubscribe to Blog
+        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unsubscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        
+        NSURL *url = [NSURL URLWithString:sUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        
+        [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     }
 }
 
@@ -171,7 +189,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) popBack {

@@ -22,7 +22,7 @@
 
 @implementation DBManager
 
--(instancetype)initWithDatabaseFilename:(NSString *)dbFilename {
+-(instancetype) initWithDatabaseFilename:(NSString *)dbFilename {
     self = [super init];
     
     if (self) {
@@ -37,7 +37,7 @@
     return self;
 }
 
--(void)copyDatabaseIntoDocumentsDirectory {
+-(void) copyDatabaseIntoDocumentsDirectory {
     NSString *destinationPath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
@@ -46,12 +46,14 @@
         
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
         
-        if (error != nil)
+        if (error != nil) {
+            NSLog(@"Error at DBManager.m [copyDatabaseIntoDocumentsDirectory]:");
             NSLog(@"%@", [error localizedDescription]);
+        }
     }
 }
 
--(void)runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable {
+-(void) runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable {
     sqlite3 *sqlite3Database;
     
     NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
@@ -123,13 +125,13 @@
     sqlite3_close(sqlite3Database);
 }
 
--(NSArray *)loadDataFromDB:(NSString *)query {
+-(NSArray *) loadDataFromDB:(NSString *)query {
     [self runQuery:[query UTF8String] isQueryExecutable:NO];
     
     return (NSArray *)self.arrResults;
 }
 
--(void)executeQuery:(NSString *)query {
+-(void) executeQuery:(NSString *)query {
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 

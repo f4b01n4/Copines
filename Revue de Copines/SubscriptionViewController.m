@@ -16,10 +16,8 @@
 
 @implementation SubscriptionViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
     [_landingFirstLabel setFont:[UIFont fontWithName:@"Apercu" size:20.0f]];
     [_landingSecondLabel setFont:[UIFont fontWithName:@"Apercu" size:20.0f]];
@@ -27,6 +25,7 @@
     [_landingFourthLabel setFont:[UIFont fontWithName:@"Apercu-Light" size:16.0f]];
     
     User *user = [User getInstance];
+    
     if (![user isLogedIn]) {
         [_landingThirdLabel setHidden:NO];
         [_landingFourthLabel setHidden:NO];
@@ -41,17 +40,14 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -72,4 +68,5 @@
 - (IBAction)loginButton:(id)sender {
     [self performSegueWithIdentifier:@"goToLogin" sender:nil];
 }
+
 @end

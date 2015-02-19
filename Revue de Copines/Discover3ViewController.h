@@ -11,9 +11,9 @@
 
 @interface Discover3ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) DiscoverViewController *dvc;
 @property (strong, nonatomic) NSString *pageTitle;
 @property (strong, nonatomic) UISearchDisplayController *sdc;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -12,6 +12,7 @@
 #import "ArticleViewController.h"
 #import "CommentsViewController.h"
 #import "BloggerProfileViewController.h"
+#import "HomeViewController.h"
 #import "DBManager.h"
 #import "Localization.h"
 
@@ -31,8 +32,7 @@
 @synthesize likeButton = _likeButton;
 @synthesize lastLoadedArticle = _lastLoadedArticle;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -40,10 +40,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"copines.sql"];
     
@@ -177,9 +175,6 @@
         [self.commentsLabel setHidden:NO];
     }
     @catch (NSException *e) {
-        NSLog(@"Exception here2");
-        NSLog(@"%@", e);
-        
         [self.likeButton setSelected:NO];
         [self.likesLabel setText:@"0"];
         [self.commentsLabel setText:@"0"];
@@ -191,10 +186,8 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setScrollEnabled:(BOOL)enabled {
@@ -334,8 +327,11 @@
         if (_currentArticle < _totalArticles && _totalArticles > 1)
             self.nextArticle = [self parseArticle:_currentArticle+1 positionIs:1];
         
-        for (UIView *view in [self.view subviews])
-            [view removeFromSuperview];
+        [_backgroundImageView setHidden:TRUE];
+        for (UIView *view in [self.view subviews]) {
+            if (view != _backgroundImageView)
+                [view removeFromSuperview];
+        }
         
         [self.scrollView addSubview:self.currArticle];
         if (self.nextArticle != NULL) {
@@ -372,8 +368,11 @@
         if (_currentArticle < _totalArticles && _totalArticles > 1)
             self.nextArticle = [self parseArticle:_currentArticle+1 positionIs:1];
         
-        for (UIView *view in [self.view subviews])
-            [view removeFromSuperview];
+        [_backgroundImageView setHidden:TRUE];
+        for (UIView *view in [self.view subviews]) {
+            if (view != _backgroundImageView)
+                [view removeFromSuperview];
+        }
         
         [self.scrollView addSubview:self.currArticle];
         if (self.nextArticle != NULL) {
@@ -662,6 +661,7 @@
     BloggerProfileViewController *viewController = (BloggerProfileViewController *)[storyboard instantiateViewControllerWithIdentifier:@"BloggerProfileViewController"];
     
     viewController.articleData = _articlesData[_currentArticle];
+    viewController.hvc = self.hvc;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

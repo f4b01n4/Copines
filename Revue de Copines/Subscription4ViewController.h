@@ -12,6 +12,15 @@
 
 @interface Subscription4ViewController : UIViewController <UIImagePickerControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
+@property (strong, nonatomic) HomeViewController *homeViewController;
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) UIBarButtonItem *registerItem;
+@property (strong, nonatomic) UIBarButtonItem *backItem;
+@property (strong, nonatomic) NSString *facebookUrl;
+@property (strong, nonatomic) NSString *twitterUrl;
+@property (strong, nonatomic) NSString *instagramUrl;
+@property (strong, nonatomic) NSString *pinterestUrl;
+@property (strong, nonatomic) NSString *googleUrl;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *coverPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *profilePhotoLabel;
@@ -40,6 +49,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *instagramBtn;
 @property (weak, nonatomic) IBOutlet UIButton *pinterestBtn;
 @property (weak, nonatomic) IBOutlet UIButton *googleBtn;
+@property (nonatomic) int nSelected;
+@property (nonatomic) int cat1;
+@property (nonatomic) int cat2;
+@property (nonatomic) int cat3;
+
 - (IBAction)modeBtnPressed:(id)sender;
 - (IBAction)beauteBtnPressed:(id)sender;
 - (IBAction)diyBtnPressed:(id)sender;
@@ -56,21 +70,5 @@
 - (IBAction)googleBtnPressed:(id)sender;
 
 -(void) popBack;
-
-@property (strong, nonatomic) UIBarButtonItem *registerItem;
-@property (strong, nonatomic) UIBarButtonItem *backItem;
-
-@property (strong, nonatomic) HomeViewController *homeViewController;
-@property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (nonatomic) int nSelected;
-@property (nonatomic) int cat1;
-@property (nonatomic) int cat2;
-@property (nonatomic) int cat3;
-
-@property (strong, nonatomic) NSString *facebookUrl;
-@property (strong, nonatomic) NSString *twitterUrl;
-@property (strong, nonatomic) NSString *instagramUrl;
-@property (strong, nonatomic) NSString *pinterestUrl;
-@property (strong, nonatomic) NSString *googleUrl;
 
 @end

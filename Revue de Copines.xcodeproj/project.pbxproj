@@ -52,7 +52,6 @@
 		4B3259F4194CA9C600ABC86A /* icon_btn_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3259EA194CA9C600ABC86A /* icon_btn_twitter.png */; };
 		4B422E461A5AE9B900A40203 /* Discover3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B422E451A5AE9B900A40203 /* Discover3ViewController.m */; };
 		4B42D66C194CE09800CAD9C0 /* PageOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B42D66B194CE09800CAD9C0 /* PageOneViewController.m */; };
-		4B42D66F194CE0A500CAD9C0 /* PageTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B42D66E194CE0A500CAD9C0 /* PageTwoViewController.m */; };
 		4B42D672194CE0DF00CAD9C0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B42D671194CE0DF00CAD9C0 /* HomeViewController.m */; };
 		4B4959301952EE9C0063F4D8 /* App icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B49592F1952EE9C0063F4D8 /* App icon.png */; };
 		4B4A17821A2C8B53004626A1 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4A17811A2C8B53004626A1 /* SimpleTableCell.xib */; };
@@ -85,8 +84,6 @@
 		4B580E8D19C9DC060011514A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B580E8C19C9DC060011514A /* User.m */; };
 		4B5943DB19CAEED9006394FE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5943DA19CAEED9006394FE /* LoginViewController.m */; };
 		4B5F43C01A3B2F2300D2C1DD /* default_article.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F43BF1A3B2F2300D2C1DD /* default_article.jpg */; };
-		4B5F4F70194F505400297218 /* PageThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F4F6F194F505400297218 /* PageThreeViewController.m */; };
-		4B5F4F73194F506400297218 /* PageFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F4F72194F506400297218 /* PageFourViewController.m */; };
 		4B5F4F76194F53BB00297218 /* menu_slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F4F75194F53BB00297218 /* menu_slider.png */; };
 		4B5F4F79194F613100297218 /* dot_opacity_50.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F4F77194F613100297218 /* dot_opacity_50.png */; };
 		4B5F4F7A194F613100297218 /* dot_opacity_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F4F78194F613100297218 /* dot_opacity_100.png */; };
@@ -233,8 +230,6 @@
 		4B422E451A5AE9B900A40203 /* Discover3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Discover3ViewController.m; sourceTree = "<group>"; };
 		4B42D66A194CE09800CAD9C0 /* PageOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageOneViewController.h; sourceTree = "<group>"; };
 		4B42D66B194CE09800CAD9C0 /* PageOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageOneViewController.m; sourceTree = "<group>"; };
-		4B42D66D194CE0A500CAD9C0 /* PageTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoViewController.h; sourceTree = "<group>"; };
-		4B42D66E194CE0A500CAD9C0 /* PageTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoViewController.m; sourceTree = "<group>"; };
 		4B42D670194CE0DF00CAD9C0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		4B42D671194CE0DF00CAD9C0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		4B49592F1952EE9C0063F4D8 /* App icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App icon.png"; sourceTree = "<group>"; };
@@ -277,10 +272,6 @@
 		4B5943D919CAEED9006394FE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4B5943DA19CAEED9006394FE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4B5F43BF1A3B2F2300D2C1DD /* default_article.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_article.jpg; sourceTree = "<group>"; };
-		4B5F4F6E194F505400297218 /* PageThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageThreeViewController.h; sourceTree = "<group>"; };
-		4B5F4F6F194F505400297218 /* PageThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageThreeViewController.m; sourceTree = "<group>"; };
-		4B5F4F71194F506400297218 /* PageFourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageFourViewController.h; sourceTree = "<group>"; };
-		4B5F4F72194F506400297218 /* PageFourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageFourViewController.m; sourceTree = "<group>"; };
 		4B5F4F75194F53BB00297218 /* menu_slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_slider.png; sourceTree = "<group>"; };
 		4B5F4F77194F613100297218 /* dot_opacity_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot_opacity_50.png; sourceTree = "<group>"; };
 		4B5F4F78194F613100297218 /* dot_opacity_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot_opacity_100.png; sourceTree = "<group>"; };
@@ -598,12 +589,6 @@
 				4B2DC6221A52CD0E003B0EE3 /* PageViewController.m */,
 				4BE883131A59C64000B1CFA1 /* BloggerFeedViewController.h */,
 				4BE883141A59C64000B1CFA1 /* BloggerFeedViewController.m */,
-				4B42D66D194CE0A500CAD9C0 /* PageTwoViewController.h */,
-				4B42D66E194CE0A500CAD9C0 /* PageTwoViewController.m */,
-				4B5F4F6E194F505400297218 /* PageThreeViewController.h */,
-				4B5F4F6F194F505400297218 /* PageThreeViewController.m */,
-				4B5F4F71194F506400297218 /* PageFourViewController.h */,
-				4B5F4F72194F506400297218 /* PageFourViewController.m */,
 				4BC912AC195075560006FEE8 /* DataClass.h */,
 				4BC912AD195075560006FEE8 /* DataClass.m */,
 				4BC912AF19508AC60006FEE8 /* ArticleViewController.h */,
@@ -988,7 +973,6 @@
 				4B2DC6231A52CD0E003B0EE3 /* PageViewController.m in Sources */,
 				4BCDB9C21A052CB800659548 /* Blog.m in Sources */,
 				4B422E461A5AE9B900A40203 /* Discover3ViewController.m in Sources */,
-				4B5F4F73194F506400297218 /* PageFourViewController.m in Sources */,
 				4B3259A8194BEF4500ABC86A /* Subscription3ViewController.m in Sources */,
 				4B4A4EAF1951E1FE00509535 /* DiscoverViewController.m in Sources */,
 				4B98354D19EED1870061E987 /* PageScrollViewController.m in Sources */,
@@ -1001,7 +985,6 @@
 				4BB96E131A38BEB600EEB2E0 /* MBProgressHUD.m in Sources */,
 				4B3259B5194C8DF200ABC86A /* Subscription4ViewController.m in Sources */,
 				4B5943DB19CAEED9006394FE /* LoginViewController.m in Sources */,
-				4B42D66F194CE0A500CAD9C0 /* PageTwoViewController.m in Sources */,
 				4B4A4E8E1951AEC600509535 /* CommentsViewController.m in Sources */,
 				4BC912AE195075560006FEE8 /* DataClass.m in Sources */,
 				4B42D672194CE0DF00CAD9C0 /* HomeViewController.m in Sources */,
@@ -1011,7 +994,6 @@
 				4BE883151A59C64000B1CFA1 /* BloggerFeedViewController.m in Sources */,
 				4B8A8686194BB26D0088A6ED /* AppDelegate.m in Sources */,
 				4B8A8742194BD9810088A6ED /* Subscription2ViewController.m in Sources */,
-				4B5F4F70194F505400297218 /* PageThreeViewController.m in Sources */,
 				4B4A17861A2C8CE5004626A1 /* SimpleTableCell.m in Sources */,
 				4B8A8682194BB26D0088A6ED /* main.m in Sources */,
 			);

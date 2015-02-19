@@ -77,7 +77,7 @@ static NSString* const UserDataUserIdKey = @"userId";
     return self;
 }
 
--(BOOL)NSStringIsValidEmail:(NSString *)checkString {
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString {
     BOOL stricterFilter = NO;
     NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
     NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
@@ -87,10 +87,11 @@ static NSString* const UserDataUserIdKey = @"userId";
     return [emailTest evaluateWithObject:checkString];
 }
 
-- (BOOL) validateUrl:(NSString *)candidate {
+-(BOOL) validateUrl:(NSString *)candidate {
     NSString *urlRegEx =
     @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
     NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    
     return [urlTest evaluateWithObject:candidate];
 }
 
@@ -150,9 +151,10 @@ static NSString* const UserDataUserIdKey = @"userId";
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[localization getStringForText:@"error" forLocale:@"fr"] message:@"" delegate:nil cancelButtonTitle:[localization getStringForText:@"ok" forLocale:@"fr"] otherButtonTitles: nil];
     
+    // TODO
     // The Images need to be checked in size, at least the cover image
-    //user.photoImage = self.profilePhoto.image;
-    //user.coverImage = self.coverPhoto.image;
+    // user.photoImage = self.profilePhoto.image;
+    // user.coverImage = self.coverPhoto.image;
     
     if (!self.blog_name.length) {
         alert.message = [localization getStringForText:@"blog name is required" forLocale:@"fr"];
@@ -223,8 +225,6 @@ static NSString* const UserDataUserIdKey = @"userId";
     NSData *jsonData = [response dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     
-    NSLog(@"%@", dict);
-    
     if ([[dict objectForKey:@"success"] integerValue] == 0) {
         Localization *localization = [[Localization alloc] init];
         
@@ -283,8 +283,6 @@ static NSString* const UserDataUserIdKey = @"userId";
     NSString *themesString = [self.themes componentsJoinedByString:@","];
     
     NSString *requestString = [NSString stringWithFormat:@"id=%ld&name=%@&themes=%@", self.userId, self.name, themesString];
-    
-    NSLog(@"request: %@", requestString);
     
     NSData *requestData = [NSData dataWithBytes:[requestString UTF8String] length:[requestString length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/update"]];
@@ -358,14 +356,10 @@ static NSString* const UserDataUserIdKey = @"userId";
 
 -(BOOL) isLogedIn {
     if (!self.userId) {
-        NSLog(@"no user");
-        
         [self clear];
         
         return FALSE;
     }
-    
-    NSLog(@"all good");
     
     NSString *requestString = [NSString stringWithFormat:@"id=%ld", (long)self.userId];
     
@@ -412,8 +406,6 @@ static NSString* const UserDataUserIdKey = @"userId";
         return TRUE;
     }
     @catch (NSException *e) {
-        NSLog(@"no user");
-        
         [self clear];
         
         return FALSE;
@@ -432,8 +424,6 @@ static NSString* const UserDataUserIdKey = @"userId";
 
 -(NSString*) getThemeString:(int)theme {
     NSArray *userthemes = [[NSArray alloc] initWithObjects:@"", @"Mode", @"Beauté", @"DIY", @"Voyages", @"Décoration", @"Fitness", @"Food", @"Mariage", @"Famille", nil];
-    
-    NSLog(@"here: %d", theme);
     
     return userthemes[theme];
 }

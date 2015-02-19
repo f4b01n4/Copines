@@ -29,8 +29,7 @@
 
 @implementation HomeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -38,10 +37,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.dataSource = self;
     
@@ -421,10 +418,8 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)createMenu {
@@ -511,7 +506,7 @@
     [line setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.5]];
     
     // Scroll Content
-    UIScrollView *scrollContent = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 193, menuWidth, self.view.frame.size.height - 193)];
+    self.scrollContent = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 193, menuWidth, self.view.frame.size.height - 193)];
     
     // Search
     UIImage *searchImage = [UIImage imageNamed:@"search.png"];
@@ -527,7 +522,7 @@
     [searchButton addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
     [searchButton addSubview:searchImageView];
     [searchButton addSubview:searchLabel];
-    [scrollContent addSubview:searchButton];
+    [self.scrollContent addSubview:searchButton];
     
     // New Category
     UIImage *categoryImage = [UIImage imageNamed:@"follow.png"];
@@ -543,14 +538,14 @@
     [categoryButton addTarget:self action:@selector(newCategory) forControlEvents:UIControlEventTouchUpInside];
     [categoryButton addSubview:categoryImageView];
     [categoryButton addSubview:categoryLabel];
-    [scrollContent addSubview:categoryButton];
+    [self.scrollContent addSubview:categoryButton];
     
     // Mes Copines Sub-Title
     UILabel *copinesLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 108, 230, 20)];
     [copinesLabel setFont:[UIFont fontWithName:@"Apercu-Bold" size:17]];
     [copinesLabel setTextColor:[UIColor whiteColor]];
     copinesLabel.text = @"Mes Copines";
-    [scrollContent addSubview:copinesLabel];
+    [self.scrollContent addSubview:copinesLabel];
     
     // Copines List
     float initY = 150;
@@ -576,14 +571,14 @@
             [copineButton addTarget:self action:@selector(viewCopine:) forControlEvents:UIControlEventTouchUpInside];
             [copineButton addSubview:bulletImageView];
             [copineButton addSubview:copineLabel];
-            [scrollContent addSubview:copineButton];
+            [self.scrollContent addSubview:copineButton];
             
             initY += 43;
         }
     }
     
-    [scrollContent setScrollEnabled:YES];
-    [scrollContent setContentSize:CGSizeMake(menuWidth, initY)];
+    [self.scrollContent setScrollEnabled:YES];
+    [self.scrollContent setContentSize:CGSizeMake(menuWidth, initY)];
     
     [self.menu addSubview:profileImageView];
     [self.menu addSubview:blogTitleLabel];
@@ -594,7 +589,7 @@
         [self.menu addSubview:manageProfileButton];
     
     [self.menu addSubview:line];
-    [self.menu addSubview:scrollContent];
+    [self.menu addSubview:self.scrollContent];
     
     // Swipe Left to close Menu
     self.menuSwipeView = [[UIView alloc] initWithFrame:CGRectMake(menuWidth, 0, 40, self.view.frame.size.height)];
@@ -610,6 +605,56 @@
     self.menuVisible = NO;
     [self.menuSwipeView setHidden:YES];
     [self.view addSubview:self.menu];
+}
+
+- (void)rebuildMenuCopinesList {
+    User *user = [User getInstance];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getCopinesList?id=%ld", (long)user.userId];
+    
+    NSURL *url = [NSURL URLWithString:sUrl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSError *error = nil;
+    
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+    self.copinesData = res;
+    int menuWidth = (self.view.frame.size.width * 280 ) / 320;
+    
+    for (UIView *v in self.scrollContent.subviews) {
+        if (v.tag != 0)
+            [v removeFromSuperview];
+    }
+    
+    // Copines List
+    float initY = 150;
+    
+    int count = [[res objectForKey:@"count"] intValue];
+    
+    if (count) {
+        for (int i = 0; i < count; i++) {
+            UIImage *bulletImage = [UIImage imageNamed:@"bullet-point.png"];
+            UIImageView *bulletImageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 6, bulletImage.size.width / 2, bulletImage.size.height / 2)];
+            [bulletImageView setImage:bulletImage];
+            
+            UILabel *copineLabel = [[UILabel alloc] initWithFrame:CGRectMake(85, 0, 195, 20)];
+            [copineLabel setFont:[UIFont fontWithName:@"Apercu-Light" size:18]];
+            [copineLabel setTextColor:[UIColor whiteColor]];
+            
+            copineLabel.text = [[res objectForKey:@"data"][i] objectForKey:@"blog_name"];
+            copineLabel.tag = 200;
+            
+            UIButton *copineButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            copineButton.tag = [[[res objectForKey:@"data"][i] objectForKey:@"blog_id"] integerValue];
+            copineButton.frame = CGRectMake(0, initY, menuWidth, 20);
+            [copineButton addTarget:self action:@selector(viewCopine:) forControlEvents:UIControlEventTouchUpInside];
+            [copineButton addSubview:bulletImageView];
+            [copineButton addSubview:copineLabel];
+            [self.scrollContent addSubview:copineButton];
+            
+            initY += 43;
+        }
+    }
 }
 
 - (void)toggleMenu {
@@ -788,6 +833,7 @@
 - (void)viewCopine:(UIButton*)button {
     self.bloggerFeedViewController = [self.theStoryboard instantiateViewControllerWithIdentifier:@"three"];
     self.bloggerFeedViewController.blogId = button.tag;
+    self.bloggerFeedViewController.hvc = self;
     
     for (UIView *v in button.subviews) {
         if (v.tag == 200) {
@@ -804,10 +850,10 @@
 - (void)viewCopineFromDiscover:(NSInteger)blogId withTitle:(NSString*)title {
     self.bloggerFeedViewController = [self.theStoryboard instantiateViewControllerWithIdentifier:@"three"];
     self.bloggerFeedViewController.blogId = blogId;
+    self.bloggerFeedViewController.hvc = self;
     
     self.bloggerFeedViewController.blogTitle = title;
     
-    //[self toggleMenu];
     [self.navigationController pushViewController:self.bloggerFeedViewController animated:YES];
 }
 

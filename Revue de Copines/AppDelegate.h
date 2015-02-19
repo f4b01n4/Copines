@@ -15,9 +15,8 @@ static NSString * const kStatusBarTappedNotification = @"statusBarTappedNotifica
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) HomeViewController *homeViewController;
 
 -(void) checkInternetConnection;
-
-@property (strong, nonatomic) HomeViewController *homeViewController;
 
 @end

@@ -17,19 +17,17 @@
 
 @implementation LoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Annuler" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     
@@ -51,45 +49,40 @@
     [_passwordInput setFont:[UIFont fontWithName:@"Apercu" size:16.0f]];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
-{
+-(BOOL)textFieldShouldReturn:(UITextField*)textField; {
     NSInteger nextTag = textField.tag + 1;
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    
     if (nextResponder) {
         [nextResponder becomeFirstResponder];
     } else {
         [textField resignFirstResponder];
     }
+    
     return NO;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     [self animateTextField: textField up: YES];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     [self animateTextField: textField up: NO];
 }
 
-- (void) animateTextField: (UITextField*) textField up: (BOOL) up
-{
-    const int movementDistance = 100; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up {
+    const int movementDistance = 100;
+    const float movementDuration = 0.3f;
     
     int movement = (up ? -movementDistance : movementDistance);
     
@@ -101,9 +94,11 @@
 }
 
 - (IBAction)facebookButton:(id)sender {
+    
 }
 
 - (IBAction)twitterButton:(id)sender {
+    
 }
 
 - (IBAction)loginButton:(id)sender {
@@ -130,7 +125,6 @@
 }
 
 -(void) popBack {
-    //[self.navigationController popViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

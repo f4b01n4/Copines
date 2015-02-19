@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SubscriptionViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UILabel *landingFirstLabel;
 @property (weak, nonatomic) IBOutlet UILabel *landingSecondLabel;
 @property (weak, nonatomic) IBOutlet UILabel *landingThirdLabel;

@@ -23,8 +23,7 @@
 @synthesize userData = _userData;
 @synthesize articleData = _articleData;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -32,10 +31,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // Set custom left bar button
     UIImage *buttonImage = [UIImage imageNamed:@"back.png"];
@@ -69,6 +66,7 @@
     UIBarButtonItem *likeBtn = [[UIBarButtonItem alloc] initWithCustomView:self.likeButton];
     UIBarButtonItem *commentBtn = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
     UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
+    
     // Spacer between buttons
     UIBarButtonItem *fixedSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpaceBarButtonItem.width = 20;
@@ -91,10 +89,8 @@
     self.navigationController.navigationBar.translucent = NO;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) popBack {
@@ -450,17 +446,14 @@
     
     NSMutableArray *substrings = [[NSMutableArray alloc] init];
     while ((r = [s rangeOfString:@"<img[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound) {
-        // até ao (range.location - 1) para o array
         if (r.location > 0) {
             NSRange range1 = NSMakeRange(0, r.location - 1);
             
             [substrings addObject:[s substringWithRange:range1]];
         }
         
-        // do (range.location) até ao (range.location + range.length) para o array
         [substrings addObject:[s substringWithRange:r]];
         
-        // a partir do (range.location + range.length + 1) para update da string actual
         NSRange range2 = NSMakeRange(r.location + r.length, [s length] - (r.location + r.length + 1));
         s = [s substringWithRange:range2];
     }
@@ -480,6 +473,7 @@
     BloggerProfileViewController *viewController = (BloggerProfileViewController *)[storyboard instantiateViewControllerWithIdentifier:@"BloggerProfileViewController"];
     
     viewController.articleData = _articleData;
+    viewController.hvc = self.hvc;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

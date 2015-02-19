@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *check7;
 @property (weak, nonatomic) IBOutlet UIImageView *check8;
 @property (weak, nonatomic) IBOutlet UIImageView *check9;
+
 - (IBAction)image1:(id)sender;
 - (IBAction)image2:(id)sender;
 - (IBAction)image3:(id)sender;

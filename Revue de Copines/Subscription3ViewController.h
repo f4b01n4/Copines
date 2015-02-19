@@ -11,6 +11,8 @@
 @class HomeViewController;
 
 @interface Subscription3ViewController : UIViewController
+
+@property (strong, nonatomic) HomeViewController *homeViewController;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
@@ -25,7 +27,5 @@
 - (IBAction)registerBlogger:(id)sender;
 
 -(BOOL) checkInternetConnection;
-
-@property (strong, nonatomic) HomeViewController *homeViewController;
 
 @end

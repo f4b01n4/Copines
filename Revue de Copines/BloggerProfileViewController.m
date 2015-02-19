@@ -9,6 +9,7 @@
 #import "User.h"
 #import "BloggerProfileViewController.h"
 #import "BloggerFeedViewController.h"
+#import "HomeViewController.h"
 #import "Localization.h"
 
 @interface BloggerProfileViewController ()
@@ -19,8 +20,7 @@
 
 @synthesize articleData = _articleData;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -28,10 +28,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.theStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
@@ -86,8 +84,10 @@
     _titleLabel.text = [_articleData objectForKey:@"blog_name"];
     _url.text = [_articleData objectForKey:@"blog_url"];
     _location.text = [NSString stringWithFormat:@"%@, %@", [_articleData objectForKey:@"user_city"], [_articleData objectForKey:@"user_country"]];
+    
     if ([_articleData objectForKey:@"blog_description"] != (id)[NSNull null])
         _bio.text = [_articleData objectForKey:@"blog_description"];
+    
     _articlesLabel.text = [_articleData objectForKey:@"blog_articles"];
     _followersLabel.text = [_articleData objectForKey:@"blog_followers"];
     _followingLabel.text = [_articleData objectForKey:@"user_following"];
@@ -115,6 +115,10 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.needToRefresh = FALSE;
+}
+
 - (void)viewDidLayoutSubviews {
     if (self.view.frame.size.width == 320) {
         [self.bio setFrame:CGRectMake(self.bio.frame.origin.x, self.bio.frame.origin.y, self.bio.frame.size.width, self.bio.frame.size.height - 20)];
@@ -128,13 +132,24 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) popBack {
+    if (self.needToRefresh) {
+        [self.hvc reinitCategoriesLoading];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [NSThread sleepForTimeInterval:1];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.hvc rebuildMenuCopinesList];
+                [self.hvc reinitCategories];
+            });
+        });
+    }
+    
     self.navigationController.navigationBar.translucent = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -150,10 +165,10 @@
     
     if (self.likeButton.selected) {
         likes = likes - 1;
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unlikeBlog?id=%@&user=%ld", [_articleData objectForKey:@"blog_id"], (long)user.userId];
+        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unsubscribeToBlog?id=%ld&blog=%@", (long)user.userId, [_articleData objectForKey:@"blog_id"]];
     } else {
         likes = likes + 1;
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/likeBlog?id=%@&user=%ld", [_articleData objectForKey:@"blog_id"], (long)user.userId];
+        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/subscribeToBlog?id=%ld&blog=%@", (long)user.userId, [_articleData objectForKey:@"blog_id"]];
     }
     
     [self.likeButton setSelected:![self.likeButton isSelected]];
@@ -166,13 +181,17 @@
     
     [_articleData setValue:[NSString stringWithFormat:@"%d", likes] forKey:@"blog_likes"];
     [_articleData setValue:[NSString stringWithFormat:@"%d", own_blog_like] forKey:@"own_blog_like"];
+    
+    self.needToRefresh = TRUE;
 }
 
 - (IBAction)bloggerFeed:(id)sender {
     BloggerFeedViewController *bf = [self.theStoryboard instantiateViewControllerWithIdentifier:@"three"];
     bf.blogId = [[_articleData objectForKey:@"blog_id"] integerValue];
     bf.blogTitle = [_articleData objectForKey:@"blog_name"];
+    bf.hvc = self.hvc;
     
     [self.navigationController pushViewController:bf animated:YES];
 }
+
 @end

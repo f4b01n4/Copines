@@ -10,7 +10,7 @@
 
 @implementation Localization
 
--(NSString*)getStringForText:(NSString *)text forLocale:(NSString *)locale {
+-(NSString*) getStringForText:(NSString *)text forLocale:(NSString *)locale {
     NSDictionary *locales = @{
                         @"no internet connection" : @{
                             @"en" : @"No Internet connection",

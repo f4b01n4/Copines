@@ -32,8 +32,7 @@
 @synthesize likeButton = _likeButton;
 @synthesize lastLoadedArticle = _lastLoadedArticle;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -41,10 +40,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"copines.sql"];
     
@@ -116,9 +113,6 @@
         [myHomeViewController.commentsLabel setHidden:NO];
     }
     @catch (NSException *e) {
-        NSLog(@"Exception");
-        NSLog(@"%@", e);
-        
         [myHomeViewController.likeButton setSelected:NO];
         [myHomeViewController.likesLabel setText:@"0"];
         [myHomeViewController.commentsLabel setText:@"0"];
@@ -130,10 +124,8 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setScrollEnabled:(BOOL)enabled {
@@ -241,8 +233,6 @@
             queryResult = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
             
             if (![queryResult count]) {
-                NSLog(@"%@", artId);
-                
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     NSString *getArticleUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getArticle?id=%@", artId];
                     NSURL *articleUrl = [NSURL URLWithString:getArticleUrl];
@@ -251,7 +241,6 @@
                     
                     NSDictionary *article = [NSJSONSerialization JSONObjectWithData:articleData options:NSJSONReadingMutableContainers error:&articleError];
                     NSDictionary *artData = [article objectForKey:@"article"];
-                    //NSDictionary *blogData = [artData objectForKey:@"blog"];
                     
                     NSString *articleId = [artData objectForKey:@"id"];
                     NSString *blogId = [artData objectForKey:@"blog_id"];
@@ -266,6 +255,9 @@
                     
                     [self.dbManager executeQuery:insertArticleQuery];
                     
+                    
+                    // TODO - all of this should be reviewed, it's necessary to be there??
+                    // Also need to check the other contorllers like this one
                     if (self.dbManager.affectedRows != 0) {
                         NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
                     } else {
@@ -342,8 +334,11 @@
         if (_currentArticle < _totalArticles && _totalArticles > 1)
             self.nextArticle = [self parseArticle:_currentArticle+1 positionIs:1];
         
-        for (UIView *view in [self.view subviews])
-            [view removeFromSuperview];
+        [_backgroundImageView setHidden:TRUE];
+        for (UIView *view in [self.view subviews]) {
+            if (view != _backgroundImageView)
+                [view removeFromSuperview];
+        }
         
         [self.scrollView addSubview:self.currArticle];
         if (self.nextArticle != NULL) {
@@ -386,8 +381,11 @@
         if (_currentArticle < _totalArticles && _totalArticles > 1)
             self.nextArticle = [self parseArticle:_currentArticle+1 positionIs:1];
         
-        for (UIView *view in [self.view subviews])
-            [view removeFromSuperview];
+        [_backgroundImageView setHidden:TRUE];
+        for (UIView *view in [self.view subviews]) {
+            if (view != _backgroundImageView)
+                [view removeFromSuperview];
+        }
         
         [self.scrollView addSubview:self.currArticle];
         if (self.nextArticle != NULL) {
@@ -678,6 +676,7 @@
     BloggerProfileViewController *viewController = (BloggerProfileViewController *)[storyboard instantiateViewControllerWithIdentifier:@"BloggerProfileViewController"];
     
     viewController.articleData = _articlesData[_currentArticle];
+    viewController.hvc = self.hvc;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

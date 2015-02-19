@@ -32,8 +32,7 @@
 @synthesize likeButton = _likeButton;
 @synthesize lastLoadedArticle = _lastLoadedArticle;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -41,10 +40,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"copines.sql"];
     
@@ -116,9 +113,6 @@
         [myHomeViewController.commentsLabel setHidden:NO];
     }
     @catch (NSException *e) {
-        NSLog(@"Exception here");
-        NSLog(@"%@", e);
-        
         [myHomeViewController.likeButton setSelected:NO];
         [myHomeViewController.likesLabel setText:@"0"];
         [myHomeViewController.commentsLabel setText:@"0"];
@@ -130,10 +124,8 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setScrollEnabled:(BOOL)enabled {
@@ -280,8 +272,11 @@
         if (_currentArticle < _totalArticles && _totalArticles > 1)
             self.nextArticle = [self parseArticle:_currentArticle+1 positionIs:1];
         
-        for (UIView *view in [self.view subviews])
-            [view removeFromSuperview];
+        [_backgroundImageView setHidden:TRUE];
+        for (UIView *view in [self.view subviews]) {
+            if (view != _backgroundImageView)
+                [view removeFromSuperview];
+        }
         
         [self.scrollView addSubview:self.currArticle];
         if (self.nextArticle != NULL) {
@@ -326,8 +321,11 @@
         if (_currentArticle < _totalArticles && _totalArticles > 1)
             self.nextArticle = [self parseArticle:_currentArticle+1 positionIs:1];
         
-        for (UIView *view in [self.view subviews])
-            [view removeFromSuperview];
+        [_backgroundImageView setHidden:TRUE];
+        for (UIView *view in [self.view subviews]) {
+            if (view != _backgroundImageView)
+                [view removeFromSuperview];
+        }
         
         [self.scrollView addSubview:self.currArticle];
         if (self.nextArticle != NULL) {
@@ -371,7 +369,6 @@
     NSString *profilePhoto = [_articlesData[index] objectForKey:@"user_photo"];
     NSString *articleContent = [_articlesData[index] objectForKey:@"article_content"];
     NSString *dateString = [_articlesData[index] objectForKey:@"article_created_at"];
-    //NSString *newArticles = @"";
     
     NSDateFormatter *inputFmt = [[NSDateFormatter alloc] init];
     NSDateFormatter *outputFmt = [[NSDateFormatter alloc] init];
@@ -618,6 +615,7 @@
     BloggerProfileViewController *viewController = (BloggerProfileViewController *)[storyboard instantiateViewControllerWithIdentifier:@"BloggerProfileViewController"];
     
     viewController.articleData = _articlesData[_currentArticle];
+    viewController.hvc = self.hvc;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

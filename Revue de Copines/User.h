@@ -15,14 +15,11 @@
     NSMutableArray *themes;
     NSInteger userId;
     NSInteger type;
-    
     NSString *photo;
     NSString *cover_photo;
     UIImage *photoImage;
     UIImage *coverImage;
-    
     NSInteger blogId;
-    
     NSString *blog_name;
     NSString *blog_localisation;
     NSString *blog_url;
@@ -36,9 +33,6 @@
 @property (retain, nonatomic) NSString *email;
 @property (retain, nonatomic) NSString *password;
 @property (retain, nonatomic) NSMutableArray *themes;
-@property (nonatomic) NSInteger userId;
-@property (nonatomic) NSInteger blogId;
-@property (nonatomic) NSInteger type;
 @property (retain, nonatomic) NSString *photo;
 @property (retain, nonatomic) NSString *cover_photo;
 @property (retain, nonatomic) UIImage *photoImage;
@@ -47,6 +41,9 @@
 @property (retain, nonatomic) NSString *blog_localisation;
 @property (retain, nonatomic) NSString *blog_url;
 @property (retain, nonatomic) NSString *blog_description;
+@property (nonatomic) NSInteger userId;
+@property (nonatomic) NSInteger blogId;
+@property (nonatomic) NSInteger type;
 @property (nonatomic) NSInteger blog_cat1;
 @property (nonatomic) NSInteger blog_cat2;
 @property (nonatomic) NSInteger blog_cat3;

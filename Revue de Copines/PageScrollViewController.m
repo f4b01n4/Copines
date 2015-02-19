@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     UIScrollView *articleView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 508)];
     [articleView setScrollEnabled:YES];
@@ -31,7 +30,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

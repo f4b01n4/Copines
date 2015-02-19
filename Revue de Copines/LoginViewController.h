@@ -11,6 +11,8 @@
 @class HomeViewController;
 
 @interface LoginViewController : UIViewController
+
+@property (strong, nonatomic) HomeViewController *homeViewController;
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UIButton *secondLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
@@ -21,7 +23,5 @@
 - (IBAction)loginButton:(id)sender;
 
 -(void) popBack;
-
-@property (strong, nonatomic) HomeViewController *homeViewController;
 
 @end
