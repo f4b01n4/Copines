@@ -29,7 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Annuler" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
+    Localization *localization = [[Localization alloc] init];
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"cancel" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     
     backItem.tintColor = [UIColor whiteColor];
     [backItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Apercu" size:16]} forState:UIControlStateNormal];
@@ -104,7 +106,7 @@
 - (IBAction)loginButton:(id)sender {
     Localization *localization = [[Localization alloc] init];
     
-    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
+    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
     
     if (![connect isEqualToString:@"success"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[localization getStringForText:@"no internet connection" forLocale:@"fr"] message:[localization getStringForText:@"you must be connected to the internet" forLocale:@"fr"] delegate:nil cancelButtonTitle:[localization getStringForText:@"ok" forLocale:@"fr"] otherButtonTitles: nil];

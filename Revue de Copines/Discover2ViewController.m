@@ -32,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Localization *localization = [[Localization alloc] init];
+    
     // Hide Back Button
     self.navigationItem.hidesBackButton = YES;
     
@@ -45,7 +47,7 @@
     self.navigationItem.leftBarButtonItem = leftButton;
     
     // Set Right Bar Button Item
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Terminé" style:UIBarButtonItemStylePlain target:self action:@selector(popToHome)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"done" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popToHome)];
     backItem.tintColor = [UIColor whiteColor];
     [backItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Apercu" size:16]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = backItem;
@@ -62,7 +64,7 @@
     
     User *user = [User getInstance];
     
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getBlogListByTheme?id=%ld&theme=%d", (long)user.userId, self.theme];
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getBlogListByTheme?id=%ld&theme=%d", (long)user.userId, self.theme];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -131,7 +133,7 @@
     
     if (like == 0) {
         [cell.checkImageView setTag:0];
-        [cell.checkImageView setImage:[UIImage imageNamed:@"add-categories.png"]];
+        [cell.checkImageView setImage:[UIImage imageNamed:@"add-categories-gray.png"]];
     } else {
         [cell.checkImageView setTag:1];
         [cell.checkImageView setImage:[UIImage imageNamed:@"check-categories.png"]];
@@ -155,7 +157,7 @@
         [v setImage:[UIImage imageNamed:@"check-categories.png"]];
         
         // Subscribe to Blog
-        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/subscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/subscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
         
         NSURL *url = [NSURL URLWithString:sUrl];
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -164,10 +166,10 @@
         [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     } else {
         [v setTag:0];
-        [v setImage:[UIImage imageNamed:@"add-categories.png"]];
+        [v setImage:[UIImage imageNamed:@"add-categories-gray.png"]];
         
         // Unsubscribe to Blog
-        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unsubscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/unsubscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
         
         NSURL *url = [NSURL URLWithString:sUrl];
         NSData *data = [NSData dataWithContentsOfURL:url];

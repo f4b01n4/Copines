@@ -55,9 +55,14 @@
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setPagingEnabled:YES];
     self.scrollView.userInteractionEnabled = YES;
+    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl setBackgroundColor:[UIColor colorWithRed:239/255.0 green:50/255.0 blue:69/255.0 alpha:1]];
+    [refreshControl setTintColor:[UIColor whiteColor]];
     [refreshControl addTarget:self action:@selector(pullToUpdate:) forControlEvents:UIControlEventValueChanged];
     [self.scrollView addSubview:refreshControl];
+    
+    [self setParentAlpha:100];
     
     self.scrollView.contentSize = CGSizeMake(screenRect.size.width, screenRect.size.height);
     
@@ -124,6 +129,15 @@
     }
 }
 
+- (void)setParentAlpha:(int)alpha {
+    HomeViewController *myHomeViewController = (HomeViewController *)self.parentViewController;
+    
+    float correctAlpha = (float)alpha / 100;
+    
+    [myHomeViewController.pageControl setAlpha:correctAlpha];
+    [myHomeViewController.titleLabel setTextColor:[UIColor colorWithWhite:1 alpha:correctAlpha]];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -144,6 +158,8 @@
             UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
             HomeViewController *myHomeViewController = (HomeViewController *)self.parentViewController;
             
+            [refreshControl setBackgroundColor:[UIColor colorWithRed:239/255.0 green:50/255.0 blue:69/255.0 alpha:1]];
+            [refreshControl setTintColor:[UIColor whiteColor]];
             [refreshControl addTarget:self action:@selector(pullToUpdate:) forControlEvents:UIControlEventValueChanged];
             
             [self.scrollView removeFromSuperview];
@@ -161,6 +177,7 @@
             
             [self preUpdateCopines:user.userId];
             
+            [self setParentAlpha:100];
             
             [refreshControl endRefreshing];
             
@@ -169,6 +186,16 @@
             [self setParentStatus];
         });
     });
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y < 0) {
+        if (scrollView.contentOffset.y <= -50)
+            [self setParentAlpha:0];
+        else
+            [self setParentAlpha:100 - (2 * abs((int)scrollView.contentOffset.y))];
+    } else
+        [self setParentAlpha:100];
 }
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -213,7 +240,7 @@
 }
 
 - (void)preParseCopines:(NSInteger)userId {
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getCopinesIds?id=%ld", (long)userId];
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getCopinesIds?id=%ld", (long)userId];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -234,7 +261,7 @@
             
             if (![queryResult count]) {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    NSString *getArticleUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getArticle?id=%@", artId];
+                    NSString *getArticleUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getArticle?id=%@", artId];
                     NSURL *articleUrl = [NSURL URLWithString:getArticleUrl];
                     NSData *articleData = [NSData dataWithContentsOfURL:articleUrl];
                     NSError *articleError = nil;
@@ -280,6 +307,8 @@
         UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
         HomeViewController *myHomeViewController = (HomeViewController *)self.parentViewController;
         
+        [refreshControl setBackgroundColor:[UIColor colorWithRed:239/255.0 green:50/255.0 blue:69/255.0 alpha:1]];
+        [refreshControl setTintColor:[UIColor whiteColor]];
         [refreshControl addTarget:self action:@selector(pullToUpdate:) forControlEvents:UIControlEventValueChanged];
         
         [self.scrollView removeFromSuperview];
@@ -298,6 +327,8 @@
         [self preUpdateCopines:user.userId];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self setParentAlpha:100];
+            
             [refreshControl endRefreshing];
             
             [myHomeViewController hideNArticlesButton];
@@ -308,7 +339,7 @@
 }
 
 - (void)parseCopines:(NSInteger)userId {
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getFeed?id=%ld", (long)userId];
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getFeed?id=%ld", (long)userId];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -353,7 +384,7 @@
 }
 
 - (void)preUpdateCopines:(NSInteger)userId {
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getFeed?id=%ld", (long)userId];
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getFeed?id=%ld", (long)userId];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -414,6 +445,8 @@
 }
 
 - (UIView*)parseArticle:(int)index positionIs:(int)next {
+    Localization *localization = [[Localization alloc] init];
+    
     if (index > _lastLoadedArticle)
         _lastLoadedArticle = index;
     
@@ -572,7 +605,8 @@
     [blogTitleLabel setFont:[UIFont fontWithName:@"TimesNewRomanPS-BoldItalicMT" size:14]];
     [blogTitleLabel setTextColor:[UIColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:1]];
     [blogTitleLabel setTextAlignment:NSTextAlignmentCenter];
-    blogTitleLabel.text = [@"Par " stringByAppendingString:blogTitle];
+    //blogTitleLabel.text = [@"Par " stringByAppendingString:blogTitle];
+    blogTitleLabel.text = [NSString stringWithFormat:@"%@ %@", [localization getStringForText:@"by" forLocale:@"fr"], blogTitle];
     
     // Article Content
     if (self.view.frame.size.width <= 320) {
@@ -641,12 +675,12 @@
         likes = likes - 1;
         
         myHomeViewController.likesLabel.text = [NSString stringWithFormat:@"%ld", myHomeViewController.likesLabel.text.integerValue - 1];
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unlikeArticle?id=%@&user=%ld", [_articlesData[_currentArticle] objectForKey:@"article_id"], (long)user.userId];
+        sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/unlikeArticle?id=%@&user=%ld", [_articlesData[_currentArticle] objectForKey:@"article_id"], (long)user.userId];
     } else {
         likes = likes + 1;
         
         myHomeViewController.likesLabel.text = [NSString stringWithFormat:@"%ld", myHomeViewController.likesLabel.text.integerValue + 1];
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/likeArticle?id=%@&user=%ld", [_articlesData[_currentArticle] objectForKey:@"article_id"], (long)user.userId];
+        sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/likeArticle?id=%@&user=%ld", [_articlesData[_currentArticle] objectForKey:@"article_id"], (long)user.userId];
     }
     
     [myHomeViewController.likeButton setSelected:!myHomeViewController.likeButton.selected];

@@ -40,6 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Localization *localization = [[Localization alloc] init];
+    
     self.dataSource = self;
     
     self.theStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -104,7 +106,7 @@
     [self.nArticlesLabel setTextColor:[UIColor whiteColor]];
     [self.nArticlesLabel setFont:[UIFont fontWithName:@"Apercu" size:14]];
     [self.nArticlesLabel setTextAlignment:NSTextAlignmentCenter];
-    self.nArticlesLabel.text = @"nouveaux articles";
+    self.nArticlesLabel.text = [localization getStringForText:@"new articles" forLocale:@"fr"];
     
     UITapGestureRecognizer *nArticlesTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollToTop)];
     nArticlesTap.numberOfTapsRequired = 1;
@@ -310,6 +312,7 @@
     [self setPageControll];
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self preLoadFrames];
 }
 
 - (void)likeArticle {
@@ -354,30 +357,30 @@
     NSString *sUrl;
     
     if (self.pageControl.currentPage == 0)
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=copines&date=%@", (long)user.userId, self.lastUpdate[0]];
+        sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=copines&date=%@", (long)user.userId, self.lastUpdate[0]];
     else {
         PageViewController *pvc = (PageViewController*) self.pages[self.pageControl.currentPage];
         
         int realPageNumber = pvc.realPageNumber;
         
         if (realPageNumber == 1)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=mode&date=%@", (long)user.userId, self.lastUpdate[1]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=mode&date=%@", (long)user.userId, self.lastUpdate[1]];
         else if (realPageNumber == 2)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=beaute&date=%@", (long)user.userId, self.lastUpdate[2]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=beaute&date=%@", (long)user.userId, self.lastUpdate[2]];
         else if (realPageNumber == 3)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=DIY&date=%@", (long)user.userId, self.lastUpdate[3]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=DIY&date=%@", (long)user.userId, self.lastUpdate[3]];
         else if (realPageNumber == 4)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=voyages&date=%@", (long)user.userId, self.lastUpdate[4]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=voyages&date=%@", (long)user.userId, self.lastUpdate[4]];
         else if (realPageNumber == 5)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=decoration&date=%@", (long)user.userId, self.lastUpdate[5]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=decoration&date=%@", (long)user.userId, self.lastUpdate[5]];
         else if (realPageNumber == 6)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=fitness&date=%@", (long)user.userId, self.lastUpdate[6]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=fitness&date=%@", (long)user.userId, self.lastUpdate[6]];
         else if (realPageNumber == 7)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=food&date=%@", (long)user.userId, self.lastUpdate[7]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=food&date=%@", (long)user.userId, self.lastUpdate[7]];
         else if (realPageNumber == 8)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=mariage&date=%@", (long)user.userId, self.lastUpdate[8]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=mariage&date=%@", (long)user.userId, self.lastUpdate[8]];
         else if (realPageNumber == 9)
-            sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUpdates?id=%ld&cat=famille&date=%@", (long)user.userId, self.lastUpdate[9]];
+            sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUpdates?id=%ld&cat=famille&date=%@", (long)user.userId, self.lastUpdate[9]];
     }
     
     NSURL *url = [NSURL URLWithString:sUrl];
@@ -425,7 +428,9 @@
 - (void)createMenu {
     User *user = [User getInstance];
     
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getCopinesList?id=%ld", (long)user.userId];
+    Localization *localization = [[Localization alloc] init];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getCopinesList?id=%ld", (long)user.userId];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -515,7 +520,7 @@
     UILabel *searchLabel = [[UILabel alloc] initWithFrame:CGRectMake(85, -1, 195, 20)];
     [searchLabel setFont:[UIFont fontWithName:@"Apercu-Light" size:18]];
     [searchLabel setTextColor:[UIColor whiteColor]];
-    searchLabel.text = @"Découvrir";
+    searchLabel.text = [localization getStringForText:@"discover" forLocale:@"fr"];
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.frame = CGRectMake(0, 22, menuWidth, searchImage.size.height / 2);
@@ -531,7 +536,7 @@
     UILabel *categoryLabel = [[UILabel alloc] initWithFrame:CGRectMake(85, 0, 195, 20)];
     [categoryLabel setFont:[UIFont fontWithName:@"Apercu-Light" size:18]];
     [categoryLabel setTextColor:[UIColor whiteColor]];
-    categoryLabel.text = @"Ajouter des catégories";
+    categoryLabel.text = [localization getStringForText:@"add categories" forLocale:@"fr"];
     
     UIButton *categoryButton = [UIButton buttonWithType:UIButtonTypeCustom];
     categoryButton.frame = CGRectMake(0, 66, menuWidth, categoryImage.size.height / 2);
@@ -544,7 +549,7 @@
     UILabel *copinesLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 108, 230, 20)];
     [copinesLabel setFont:[UIFont fontWithName:@"Apercu-Bold" size:17]];
     [copinesLabel setTextColor:[UIColor whiteColor]];
-    copinesLabel.text = @"Mes Copines";
+    copinesLabel.text = [localization getStringForText:@"my copines" forLocale:@"fr"];
     [self.scrollContent addSubview:copinesLabel];
     
     // Copines List
@@ -605,12 +610,29 @@
     self.menuVisible = NO;
     [self.menuSwipeView setHidden:YES];
     [self.view addSubview:self.menu];
+    
+    [self preLoadFrames];
+}
+
+- (void)preLoadFrames {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CGRect mainPageFrame = self.mainPageViewController.view.frame;
+        CGRect pageOneFrame = self.pageOneViewController.view.frame;
+        CGRect pageTwoFrame = self.pageTwoViewController.view.frame;
+        CGRect pageThreeFrame = self.pageThreeViewController.view.frame;
+        CGRect pageFourFrame = self.pageFourViewController.view.frame;
+        CGRect pageFiveFrame = self.pageFiveViewController.view.frame;
+        CGRect pageSixFrame = self.pageSixViewController.view.frame;
+        CGRect pageSevenFrame = self.pageSevenViewController.view.frame;
+        CGRect pageEightFrame = self.pageEightViewController.view.frame;
+        CGRect pageNineFrame = self.pageNineViewController.view.frame;
+    });
 }
 
 - (void)rebuildMenuCopinesList {
     User *user = [User getInstance];
     
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getCopinesList?id=%ld", (long)user.userId];
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getCopinesList?id=%ld", (long)user.userId];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -881,38 +903,40 @@
 }
 
 - (void) drawTitle:(NSInteger)page {
+    Localization *localization = [[Localization alloc] init];
+    
     // Label
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, -5, 200, 32)];
-    [title setTextColor:[UIColor whiteColor]];
-    [title setFont:[UIFont fontWithName:@"Apercu-Bold" size:18]];
-    [title setTextAlignment:NSTextAlignmentCenter];
-    [title setTag:10];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, -5, 200, 32)];
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
+    [self.titleLabel setFont:[UIFont fontWithName:@"Apercu-Bold" size:18]];
+    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.titleLabel setTag:10];
     
     if (page == 1)
-        title.text = @"Mes copines";
+        self.titleLabel.text = [localization getStringForText:@"my copines" forLocale:@"fr"];
     else if (page == 2)
-        title.text = @"Mode";
+        self.titleLabel.text = @"Mode";
     else if (page == 3)
-        title.text = @"Beauté";
+        self.titleLabel.text = @"Beauté";
     else if (page == 4)
-        title.text = @"DIY";
+        self.titleLabel.text = @"DIY";
     else if (page == 5)
-        title.text = @"Voyages";
+        self.titleLabel.text = @"Voyages";
     else if (page == 6)
-        title.text = @"Décoration";
+        self.titleLabel.text = @"Décoration";
     else if (page == 7)
-        title.text = @"Fitness";
+        self.titleLabel.text = @"Fitness";
     else if (page == 8)
-        title.text = @"Food";
+        self.titleLabel.text = @"Food";
     else if (page == 9)
-        title.text = @"Mariage";
+        self.titleLabel.text = @"Mariage";
     else if (page == 10)
-        title.text = @"Famille";
+        self.titleLabel.text = @"Famille";
     
     UIView *iv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 32)];
     
     [iv setBackgroundColor:[UIColor clearColor]];
-    [iv addSubview:title];
+    [iv addSubview:self.titleLabel];
     
     self.navigationItem.titleView = iv;
 }

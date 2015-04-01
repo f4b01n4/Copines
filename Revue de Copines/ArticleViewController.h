@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSMutableArray *viewContentArray;
 @property (strong, nonatomic) NSMutableArray *viewContentHeights;
 @property (strong, nonatomic) UIButton *origArtButton;
+@property (strong, nonatomic) NSMutableArray *tags;
 @property (nonatomic) float totalHeight;
 @property (nonatomic) int imgsToLoad;
 @property (nonatomic) int imgsLoaded;

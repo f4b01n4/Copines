@@ -7,6 +7,7 @@
 //
 
 #import "SubscriptionViewController.h"
+#import "WelcomeViewController.h"
 #import "User.h"
 #import "Localization.h"
 
@@ -32,6 +33,9 @@
         [_logBtn setHidden:NO];
         [_arrowBtn setHidden:NO];
         [_loader stopAnimating];
+        
+        //NSLog(@"show welcome");
+        //[self performSegueWithIdentifier:@"welcomeScreen" sender:nil];
     } else {
         [_landingThirdLabel setHidden:YES];
         [_landingFourthLabel setHidden:YES];

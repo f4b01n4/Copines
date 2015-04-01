@@ -39,6 +39,7 @@
 @property (strong, nonatomic) UIView *nextArticle;
 @property (strong, nonatomic) NSMutableArray *views;
 @property (strong, nonatomic) NSString *blogTitle;
+@property (strong, nonatomic) UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic) int totalArticles;
 @property (nonatomic) int currentArticle;

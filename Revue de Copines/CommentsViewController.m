@@ -33,18 +33,20 @@ CGFloat _currentKeyboardHeight = 0.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Localization *localization = [[Localization alloc] init];
+    
     // Hide Back Button
     self.navigationItem.hidesBackButton = YES;
     
     // Set Right Bar Button Item
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Terminé" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"done" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     backItem.tintColor = [UIColor whiteColor];
     [backItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Apercu" size:16]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = backItem;
     
     // Set Title
     UILabel *navTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.navigationItem.titleView.frame.size.width,40)];
-    navTitle.text = @"Commentaires";
+    navTitle.text = [localization getStringForText:@"comments" forLocale:@"fr"];
     navTitle.textColor = [UIColor whiteColor];
     navTitle.textAlignment = NSTextAlignmentCenter;
     [navTitle setFont:[UIFont fontWithName:@"Apercu-Bold" size:20]];
@@ -70,9 +72,11 @@ CGFloat _currentKeyboardHeight = 0.0f;
 }
 
 - (void)parseComments {
+    Localization *localization = [[Localization alloc] init];
+    
     NSString *article_id = [_articleData objectForKey:@"article_id"];
     
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getComments?id=%@", article_id];
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getComments?id=%@", article_id];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -166,7 +170,7 @@ CGFloat _currentKeyboardHeight = 0.0f;
     self.commentField = [[UITextField alloc] initWithFrame:CGRectMake(10, 11, self.view.frame.size.width - 123, 29)];
     [self.commentField setBackgroundColor:[UIColor whiteColor]];
     [self.commentField setTextColor:[UIColor blackColor]];
-    [self.commentField setPlaceholder:@"Ajouter un commentaire"];
+    [self.commentField setPlaceholder:[localization getStringForText:@"add a comment" forLocale:@"fr"]];
     [self.commentField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.commentField setFont:[UIFont fontWithName:@"Apercu-Light" size:12]];
 
@@ -193,7 +197,7 @@ CGFloat _currentKeyboardHeight = 0.0f;
         User *user = [User getInstance];
         
         NSString *article_id = [_articleData objectForKey:@"article_id"];
-        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/newComment?id=%@&user=%ld&content=%@", article_id, (long)user.userId, base64Encoded];
+        NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/newComment?id=%@&user=%ld&content=%@", article_id, (long)user.userId, base64Encoded];
         
         NSURL *url = [NSURL URLWithString:sUrl];
         NSData *data = [NSData dataWithContentsOfURL:url];

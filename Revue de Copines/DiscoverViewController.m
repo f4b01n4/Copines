@@ -32,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Localization *localization = [[Localization alloc] init];
+    
     // Hide Back Button
     self.navigationItem.hidesBackButton = YES;
     
@@ -51,14 +53,14 @@
     self.navigationItem.leftBarButtonItem = leftButton;
     
     // Set Right Bar Button Item
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Terminé" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"done" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     backItem.tintColor = [UIColor whiteColor];
     [backItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Apercu" size:16]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = backItem;
     
     // Set Title
     UILabel *navTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.navigationItem.titleView.frame.size.width,40)];
-    navTitle.text = @"Découvrir";
+    navTitle.text = [localization getStringForText:@"discover" forLocale:@"fr"];
     navTitle.textColor = [UIColor whiteColor];
     navTitle.textAlignment = NSTextAlignmentCenter;
     [navTitle setFont:[UIFont fontWithName:@"Apercu-Bold" size:20]];
@@ -70,7 +72,7 @@
     
     User *user = [User getInstance];
     
-    NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getCompleteCopinesList?id=%ld", (long)user.userId];
+    NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getCompleteCopinesList?id=%ld", (long)user.userId];
     
     NSURL *url = [NSURL URLWithString:sUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -80,10 +82,12 @@
 }
 
 - (void)searchBlogger {
+    Localization *localization = [[Localization alloc] init];
+    
     Discover2ViewController *discover2ViewController;
     discover2ViewController = [self.theStoryboard instantiateViewControllerWithIdentifier:@"Discover3ViewController"];
     discover2ViewController.dvc = self;
-    discover2ViewController.pageTitle = @"Recherche";
+    discover2ViewController.pageTitle = [localization getStringForText:@"search" forLocale:@"fr"];
     
     [self.navigationController pushViewController:discover2ViewController animated:YES];
 }
@@ -204,7 +208,7 @@
     
     if (like == 0) {
         [cell.checkImageView setTag:0];
-        [cell.checkImageView setImage:[UIImage imageNamed:@"add-categories.png"]];
+        [cell.checkImageView setImage:[UIImage imageNamed:@"add-categories-gray.png"]];
     } else {
         [cell.checkImageView setTag:1];
         [cell.checkImageView setImage:[UIImage imageNamed:@"check-categories.png"]];
@@ -229,7 +233,7 @@
         [v setImage:[UIImage imageNamed:@"check-categories.png"]];
         
         // Subscribe to Blog
-        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/subscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/subscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
         
         NSURL *url = [NSURL URLWithString:sUrl];
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -238,10 +242,10 @@
         [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     } else {
         [v setTag:0];
-        [v setImage:[UIImage imageNamed:@"add-categories.png"]];
+        [v setImage:[UIImage imageNamed:@"add-categories-gray.png"]];
         
         // Unsubscribe to Blog
-        NSString *sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unsubscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
+        NSString *sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/unsubscribeToBlog?id=%ld&blog=%ld", (long)user.userId, (long)cell.tag];
         
         NSURL *url = [NSURL URLWithString:sUrl];
         NSData *data = [NSData dataWithContentsOfURL:url];

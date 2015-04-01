@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Revue de Copines.xcodeproj">
+      location = "self:Copines.xcodeproj">
    </FileRef>
 </Workspace>

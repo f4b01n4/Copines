@@ -11,6 +11,7 @@
 #import "BloggerProfileViewController.h"
 #import "CommentsViewController.h"
 #import "Localization.h"
+#import "ImageViewController.h"
 
 
 @interface ArticleViewController ()
@@ -112,6 +113,8 @@
 }
 
 - (void)parseArticle {
+    Localization *localization = [[Localization alloc] init];
+    
     NSString *blogTitle = [_articleData objectForKey:@"blog_name"];
     NSString *articleName = [_articleData objectForKey:@"article_title"];
     NSString *photo = [_articleData objectForKey:@"article_photo"];
@@ -238,15 +241,33 @@
     // Article Name
     UILabel *articleNameLabel;
     
+    NSDictionary *fontAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"Apercu-Medium" size:23]};
+    CGSize labelSize = [articleName sizeWithAttributes:fontAttributes];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    labelSize.width = labelSize.width * screenRect.size.width / 320;
+    
+    if (labelSize.width < self.view.frame.size.width)
+        labelSize.width = self.view.frame.size.width;
+    
     if (self.view.frame.size.width <= 320)
-        articleNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 235, self.view.frame.size.width - 20, 30)];
+        articleNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 235, labelSize.width, 30)];
     else
-        articleNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 320, self.view.frame.size.width - 20, 30)];
+        articleNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 320, labelSize.width, 30)];
     
     [articleNameLabel setTextColor:[UIColor blackColor]];
     [articleNameLabel setFont:[UIFont fontWithName:@"Apercu-Medium" size:23]];
     [articleNameLabel setTextAlignment:NSTextAlignmentCenter];
     articleNameLabel.text = [articleName uppercaseString];
+    
+    if (articleNameLabel.frame.size.width > self.view.frame.size.width) {
+        float toAnimate = articleNameLabel.frame.size.width - self.view.frame.size.width + 20;
+        float duration = toAnimate / 16;
+        
+        [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+            articleNameLabel.center = CGPointMake(articleNameLabel.center.x - toAnimate, articleNameLabel.center.y);
+        } completion:nil];
+    }
     
     // Blog Title
     UILabel *blogTitleLabel;
@@ -259,7 +280,8 @@
     [blogTitleLabel setFont:[UIFont fontWithName:@"TimesNewRomanPS-BoldItalicMT" size:14]];
     [blogTitleLabel setTextColor:[UIColor colorWithRed:0.5f green:0.5f blue:0.5f alpha:1]];
     [blogTitleLabel setTextAlignment:NSTextAlignmentCenter];
-    blogTitleLabel.text = [@"Par " stringByAppendingString:blogTitle];
+    //blogTitleLabel.text = [@"Par " stringByAppendingString:blogTitle];
+    blogTitleLabel.text = [NSString stringWithFormat:@"%@ %@", [localization getStringForText:@"by" forLocale:@"fr"], blogTitle];
     
     UIView *articleContentView;
     if (self.view.frame.size.width <= 320)
@@ -287,6 +309,8 @@
         
     [articleContentView addSubview:self.origArtButton];
     
+    self.tags = [[NSMutableArray alloc] init];
+    
     for (NSString *sub in substrings) {
         NSRange r;
         NSRange r2;
@@ -296,6 +320,7 @@
                 NSInteger imgPos = self.viewContentArray.count;
                 
                 UIImageView *tmp = [[UIImageView alloc] init];
+                
                 [self.viewContentArray addObject:tmp];
                 
                 self.imgsToLoad++;
@@ -327,7 +352,19 @@
                             UIGraphicsEndImageContext();
                             
                             UIImageView *articleImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.totalHeight + 10, self.view.frame.size.width, newImage.size.height)];
+                            [articleImgView setUserInteractionEnabled:YES];
                             [articleImgView setImage:newImage];
+                            
+                            // Add Gesture Recognizer to the Image View
+                            UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnImage:)];
+                            imageTap.delegate = self;
+                            imageTap.numberOfTapsRequired = 1;
+                            
+                            [articleImgView setTag:self.imgsLoaded];
+                            
+                            [self.tags insertObject:articleImgUrl atIndex:self.imgsLoaded];
+                            
+                            [articleImgView addGestureRecognizer:imageTap];
                             
                             self.totalHeight += (newImage.size.height + 20);
                             
@@ -341,12 +378,16 @@
                             self.viewContentArray[imgPos] = articleImgView;
                             [self updateElementPosition];
                             [articleContentView addSubview:self.viewContentArray[imgPos]];
+                            
+                            CGRect _frame = articleContentView.frame;
+                            _frame.size.height = self.totalHeight;
+                            articleContentView.frame = _frame;
+                            
+                            self.imgsLoaded++;
                         } else
                             [self.viewContentArray[imgPos] removeFromSuperview];
                     } else
                         [self.viewContentArray[imgPos] removeFromSuperview];
-                    
-                    self.imgsLoaded++;
                 }];
             }
         } else {
@@ -410,6 +451,20 @@
         [view removeFromSuperview];
     
     [self.view addSubview:self.articleView];
+}
+
+- (void)tapOnImage:(UITapGestureRecognizer*)recognizer {
+    UIImageView *imageView = recognizer.view;
+    UIImage *image = imageView.image;
+    
+    NSString *url = [self.tags objectAtIndex:imageView.tag];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ImageViewController *imageController = (ImageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ImageViewController"];
+    //imageController.image = image;
+    imageController.imagePath = url;
+    
+    [self presentViewController:imageController animated:YES completion:nil];
 }
 
 - (void)updateElementPosition {
@@ -489,10 +544,10 @@
     
     if (self.likeButton.selected) {
         likes = likes - 1;
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unlikeArticle?id=%@&user=%ld", [_articleData objectForKey:@"article_id"], (long)user.userId];
+        sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/unlikeArticle?id=%@&user=%ld", [_articleData objectForKey:@"article_id"], (long)user.userId];
     } else {
         likes = likes + 1;
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/likeArticle?id=%@&user=%ld", [_articleData objectForKey:@"article_id"], (long)user.userId];
+        sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/likeArticle?id=%@&user=%ld", [_articleData objectForKey:@"article_id"], (long)user.userId];
     }
     
     [self.likeButton setSelected:![self.likeButton isSelected]];

@@ -28,18 +28,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Localization *localization = [[Localization alloc] init];
+    
     // Hide Back Button
     self.navigationItem.hidesBackButton = YES;
     
     // Set Right Bar Button Item
-    self.backItem = [[UIBarButtonItem alloc] initWithTitle:@"Terminé" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
+    self.backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"done" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     self.backItem.tintColor = [UIColor whiteColor];
     [self.backItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Apercu" size:16]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = self.backItem;
     
     // Set Title
     UILabel *navTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.navigationItem.titleView.frame.size.width,40)];
-    navTitle.text = @"Gérer mon profil";
+    navTitle.text = [localization getStringForText:@"manage my profile" forLocale:@"fr"];
     navTitle.textColor = [UIColor whiteColor];
     navTitle.textAlignment = NSTextAlignmentCenter;
     [navTitle setFont:[UIFont fontWithName:@"Apercu-Bold" size:20]];
@@ -76,16 +78,22 @@
 
 -(void) popBack {
     Localization *localization = [[Localization alloc] init];
+    User *user = [User getInstance];
     
-    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
+    if ([user.name isEqualToString:self.nameInput.text] && !self.passwordInput.text.length) {
+        self.navigationController.navigationBar.translucent = YES;
+        [self.navigationController popViewControllerAnimated:YES];
+        
+        return;
+    }
+    
+    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
     
     if (![connect isEqualToString:@"success"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[localization getStringForText:@"no internet connection" forLocale:@"fr"] message:[localization getStringForText:@"you must be connected to the internet" forLocale:@"fr"] delegate:nil cancelButtonTitle:[localization getStringForText:@"ok" forLocale:@"fr"] otherButtonTitles: nil];
         
         [alert show];
     } else {
-        User *user = [User getInstance];
-        
         user.name = self.nameInput.text;
         user.password = self.passwordInput.text;
         
@@ -102,7 +110,7 @@
                 
                 NSData *profileImageData = UIImageJPEGRepresentation(self.profilePhoto.image, 100);
                 
-                NSString *urlString = @"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/updateUser/";
+                NSString *urlString = @"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/updateUser/";
                 
                 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
                 [request setURL:[NSURL URLWithString:urlString]];

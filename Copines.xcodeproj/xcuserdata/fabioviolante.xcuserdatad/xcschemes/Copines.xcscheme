@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B8A8671194BB26D0088A6ED"
-               BuildableName = "Revue de Copines.app"
-               BlueprintName = "Revue de Copines"
-               ReferencedContainer = "container:Revue de Copines.xcodeproj">
+               BuildableName = "Copines.app"
+               BlueprintName = "Copines"
+               ReferencedContainer = "container:Copines.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B8A8692194BB26D0088A6ED"
-               BuildableName = "Revue de CopinesTests.xctest"
-               BlueprintName = "Revue de CopinesTests"
-               ReferencedContainer = "container:Revue de Copines.xcodeproj">
+               BuildableName = "CopinesTests.xctest"
+               BlueprintName = "CopinesTests"
+               ReferencedContainer = "container:Copines.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B8A8671194BB26D0088A6ED"
-            BuildableName = "Revue de Copines.app"
-            BlueprintName = "Revue de Copines"
-            ReferencedContainer = "container:Revue de Copines.xcodeproj">
+            BuildableName = "Copines.app"
+            BlueprintName = "Copines"
+            ReferencedContainer = "container:Copines.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B8A8671194BB26D0088A6ED"
-            BuildableName = "Revue de Copines.app"
-            BlueprintName = "Revue de Copines"
-            ReferencedContainer = "container:Revue de Copines.xcodeproj">
+            BuildableName = "Copines.app"
+            BlueprintName = "Copines"
+            ReferencedContainer = "container:Copines.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B8A8671194BB26D0088A6ED"
-            BuildableName = "Revue de Copines.app"
-            BlueprintName = "Revue de Copines"
-            ReferencedContainer = "container:Revue de Copines.xcodeproj">
+            BuildableName = "Copines.app"
+            BlueprintName = "Copines"
+            ReferencedContainer = "container:Copines.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

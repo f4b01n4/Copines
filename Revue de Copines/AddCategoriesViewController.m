@@ -28,18 +28,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Localization *localization = [[Localization alloc] init];
+    
     // Hide Back Button
     self.navigationItem.hidesBackButton = YES;
     
     // Set Right Bar Button Item
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Terminé" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"done" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     backItem.tintColor = [UIColor whiteColor];
     [backItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Apercu" size:16]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = backItem;
     
     // Set Title
     UILabel *navTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.navigationItem.titleView.frame.size.width,40)];
-    navTitle.text = @"Ajouter des catégories";
+    navTitle.text = [localization getStringForText:@"add categories" forLocale:@"fr"];
     navTitle.textColor = [UIColor whiteColor];
     navTitle.textAlignment = NSTextAlignmentCenter;
     [navTitle setFont:[UIFont fontWithName:@"Apercu-Bold" size:20]];

@@ -29,10 +29,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Localization *localization = [[Localization alloc] init];
+    
     [_titleLabel setFont:[UIFont fontWithName:@"Apercu-Light" size:16.0f]];
     [_conditionsLabel setFont:[UIFont fontWithName:@"Apercu-Light" size:14.0f]];
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Annuler" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"cancel" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     
     backItem.tintColor = [UIColor whiteColor];
     [backItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Apercu" size:16]} forState:UIControlStateNormal];
@@ -40,7 +42,7 @@
     self.navigationItem.leftBarButtonItem = backItem;
     
     UILabel *navTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.navigationItem.titleView.frame.size.width,40)];
-    navTitle.text = @"S'inscrire";
+    navTitle.text = [localization getStringForText:@"register" forLocale:@"fr"];
     navTitle.textColor = [UIColor whiteColor];
     navTitle.textAlignment = NSTextAlignmentCenter;
     [navTitle setFont:[UIFont fontWithName:@"Apercu-Bold" size:20]];
@@ -142,7 +144,7 @@
                     [NSNumber numberWithInt:[[NSNumber numberWithBool:!_check9.hidden] intValue] * 9],
                     nil];
     
-    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
+    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
     
     if (![connect isEqualToString:@"success"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[localization getStringForText:@"no internet connection" forLocale:@"fr"] message:[localization getStringForText:@"you must be connected to the internet" forLocale:@"fr"] delegate:nil cancelButtonTitle:[localization getStringForText:@"ok" forLocale:@"fr"] otherButtonTitles: nil];

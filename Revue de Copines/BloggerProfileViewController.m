@@ -165,10 +165,10 @@
     
     if (self.likeButton.selected) {
         likes = likes - 1;
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/unsubscribeToBlog?id=%ld&blog=%@", (long)user.userId, [_articleData objectForKey:@"blog_id"]];
+        sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/unsubscribeToBlog?id=%ld&blog=%@", (long)user.userId, [_articleData objectForKey:@"blog_id"]];
     } else {
         likes = likes + 1;
-        sUrl = [NSString stringWithFormat:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/subscribeToBlog?id=%ld&blog=%@", (long)user.userId, [_articleData objectForKey:@"blog_id"]];
+        sUrl = [NSString stringWithFormat:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/subscribeToBlog?id=%ld&blog=%@", (long)user.userId, [_articleData objectForKey:@"blog_id"]];
     }
     
     [self.likeButton setSelected:![self.likeButton isSelected]];

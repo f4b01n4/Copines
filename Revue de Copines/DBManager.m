@@ -106,7 +106,7 @@
                     }
                 }
             } else {
-                int executeQueryResults = sqlite3_step(compiledStatement); // this var was originally a BOOL
+                int executeQueryResults = sqlite3_step(compiledStatement);
                 
                 if (executeQueryResults == SQLITE_DONE) {
                     self.affectedRows = sqlite3_changes(sqlite3Database);

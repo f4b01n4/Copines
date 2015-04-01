@@ -213,7 +213,7 @@ static NSString* const UserDataUserIdKey = @"userId";
     NSString *requestString = [NSString stringWithFormat:@"email=%@", self.email];
     
     NSData *requestData = [NSData dataWithBytes:[requestString UTF8String] length:[requestString length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/verifyEmail"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/verifyEmail"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
@@ -244,7 +244,7 @@ static NSString* const UserDataUserIdKey = @"userId";
     NSString *requestString = [NSString stringWithFormat:@"name=%@&email=%@&password=%@&type=%@&themes=%@", self.name, self.email, self.password, [NSString stringWithFormat:@"%ld", (long)self.type], themesString];
     
     NSData *requestData = [NSData dataWithBytes:[requestString UTF8String] length:[requestString length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/register"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/register"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
@@ -285,7 +285,7 @@ static NSString* const UserDataUserIdKey = @"userId";
     NSString *requestString = [NSString stringWithFormat:@"id=%ld&name=%@&themes=%@", self.userId, self.name, themesString];
     
     NSData *requestData = [NSData dataWithBytes:[requestString UTF8String] length:[requestString length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/update"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/update"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
@@ -316,7 +316,7 @@ static NSString* const UserDataUserIdKey = @"userId";
     NSString *requestString = [NSString stringWithFormat:@"email=%@&password=%@", self.email, self.password];
     
     NSData *requestData = [NSData dataWithBytes:[requestString UTF8String] length:[requestString length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/login"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/login"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
@@ -364,7 +364,7 @@ static NSString* const UserDataUserIdKey = @"userId";
     NSString *requestString = [NSString stringWithFormat:@"id=%ld", (long)self.userId];
     
     NSData *requestData = [NSData dataWithBytes:[requestString UTF8String] length:[requestString length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/getUserInfo"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/getUserInfo"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];

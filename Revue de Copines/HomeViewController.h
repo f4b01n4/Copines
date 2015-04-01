@@ -44,6 +44,7 @@
 @property (strong, nonatomic) NSMutableArray *articlesData;
 @property (strong, nonatomic) NSMutableArray *currentArticle;
 @property (strong, nonatomic) NSMutableArray *lastUpdate;
+@property (strong, nonatomic) UILabel *titleLabel;
 @property (nonatomic) MBProgressHUD *hud;
 @property (nonatomic) BOOL menuVisible;
 

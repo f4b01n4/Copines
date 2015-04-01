@@ -30,8 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.registerItem = [[UIBarButtonItem alloc] initWithTitle:@"Enregistrer" style:UIBarButtonItemStylePlain target:self action:@selector(register)];
-    self.backItem = [[UIBarButtonItem alloc] initWithTitle:@"Annuler" style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
+    Localization *localization = [[Localization alloc] init];
+    
+    self.registerItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"register2" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(register)];
+    self.backItem = [[UIBarButtonItem alloc] initWithTitle:[localization getStringForText:@"cancel" forLocale:@"fr"] style:UIBarButtonItemStylePlain target:self action:@selector(popBack)];
     
     self.registerItem.tintColor = [UIColor whiteColor];
     self.backItem.tintColor = [UIColor whiteColor];
@@ -42,7 +44,7 @@
     self.navigationItem.leftBarButtonItem = self.backItem;
     
     UILabel *navTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.navigationItem.titleView.frame.size.width,40)];
-    navTitle.text = @"S'inscrire";
+    navTitle.text = [localization getStringForText:@"register" forLocale:@"fr"];
     navTitle.textColor = [UIColor whiteColor];
     navTitle.textAlignment = NSTextAlignmentCenter;
     [navTitle setFont:[UIFont fontWithName:@"Apercu-Bold" size:20]];
@@ -354,7 +356,7 @@
 -(void) register {
     Localization *localization = [[Localization alloc] init];
     
-    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
+    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/checkConnection"] encoding:NSUTF8StringEncoding error:nil];
     
     if (![connect isEqualToString:@"success"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[localization getStringForText:@"no internet connection" forLocale:@"fr"] message:[localization getStringForText:@"you must be connected to the internet" forLocale:@"fr"] delegate:nil cancelButtonTitle:[localization getStringForText:@"ok" forLocale:@"fr"] otherButtonTitles: nil];
@@ -416,7 +418,7 @@
             NSData *profileImageData = UIImageJPEGRepresentation(user.photoImage, 100);
             NSData *coverImageData = UIImageJPEGRepresentation(user.coverImage, 100);
              
-            NSString *urlString = @"http://adlead.dynip.sapo.pt/revue-de-copines/back/ios/registerBlogger/";
+            NSString *urlString = @"http://ec2-54-170-94-162.eu-west-1.compute.amazonaws.com/ios/registerBlogger/";
              
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
             [request setURL:[NSURL URLWithString:urlString]];
